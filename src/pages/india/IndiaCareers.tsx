@@ -25,7 +25,7 @@ export default function IndiaCareers() {
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             <span className="text-accent text-[13px] font-medium tracking-[0.15em] uppercase mb-6 block">Careers</span>
             <h1 className="text-5xl md:text-[64px] font-heading font-bold text-white leading-[1.1] tracking-[-0.02em] max-w-2xl">
-              Shape the Future<br />of <em className="font-normal text-white/60">Finance</em>
+              Shape the Future<br />of <span className="font-medium text-white/50">Finance</span>
             </h1>
           </motion.div>
         </div>
@@ -36,7 +36,7 @@ export default function IndiaCareers() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-20">
             <motion.span variants={fadeUp} custom={0} className="text-accent text-[13px] font-medium tracking-[0.15em] uppercase mb-5 block">Why NRS</motion.span>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[48px] font-heading font-bold tracking-[-0.02em] leading-[1.1] max-w-xl">
-              Not just a job.<br />A <em className="font-normal text-muted-foreground">profession.</em>
+              Not just a job.<br />A <span className="font-medium text-muted-foreground">profession.</span>
             </motion.h2>
           </motion.div>
 
