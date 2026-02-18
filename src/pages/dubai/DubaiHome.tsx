@@ -1,7 +1,8 @@
 import nrsBuilding from "@/assets/nrs-building.png";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { fadeUp } from "@/lib/animations";
 
 const services = [
@@ -32,16 +33,29 @@ const services = [
 ];
 
 export default function DubaiHome() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const cinematicOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
+
   return (
     <>
       {/* Hero */}
-      <section className="relative h-screen flex items-end overflow-hidden bg-foreground">
+      <section ref={heroRef} className="relative h-screen flex items-end overflow-hidden bg-foreground">
         <img
           src={nrsBuilding}
           alt="NRS & Associates Building"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
+        {/* Base readability gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        {/* Cinematic bottom-left fade — disappears on scroll */}
+        <motion.div
+          style={{ opacity: cinematicOpacity }}
+          className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_0%_100%,rgba(0,0,0,0.85)_0%,rgba(0,0,0,0.4)_40%,transparent_70%)]"
+        />
 
         <div className="relative z-10 container pb-12 md:pb-16">
           <motion.div
