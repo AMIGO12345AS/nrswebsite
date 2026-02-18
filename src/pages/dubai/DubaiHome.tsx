@@ -54,7 +54,7 @@ export default function DubaiHome() {
         {/* Cinematic bottom-left fade — disappears on scroll */}
         <motion.div
           style={{ opacity: cinematicOpacity }}
-          className="absolute inset-0 bg-[radial-gradient(ellipse_90%_80%_at_0%_100%,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0.5)_45%,transparent_75%)]"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_120%_100%_at_0%_100%,rgba(0,0,0,0.95)_0%,rgba(0,0,0,0.6)_40%,rgba(0,0,0,0.25)_65%,transparent_85%)]"
         />
 
         <div className="relative z-10 container pb-12 md:pb-16">
