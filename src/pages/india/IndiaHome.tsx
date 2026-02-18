@@ -141,9 +141,11 @@ export default function IndiaHome() {
         </div>
       </section>
 
-      {/* Services — editorial grid */}
-      <section className="relative py-32 bg-background overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-secondary/50 to-transparent" />
+      {/* Services */}
+      <section className="relative py-32 bg-foreground overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-accent/[0.03] blur-[150px] rounded-full" />
+        </div>
         <div className="container relative z-10">
           <motion.div
             initial="hidden"
@@ -152,18 +154,15 @@ export default function IndiaHome() {
             className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-20"
           >
             <div>
-              <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-5">
-                <div className="h-px w-12 bg-accent" />
-                <span className="text-accent text-[12px] font-semibold tracking-[0.25em] uppercase">Services</span>
-              </motion.div>
-              <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[48px] font-heading font-bold leading-[1.1] tracking-[-0.03em]">
+              <motion.span variants={fadeUp} custom={0} className="text-accent text-[13px] font-medium tracking-[0.15em] uppercase mb-5 block">Services</motion.span>
+              <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[52px] font-heading font-bold leading-[1.08] tracking-[-0.02em] text-white">
                 What we do
               </motion.h2>
             </div>
             <motion.div variants={fadeUp} custom={2}>
               <Link
                 to="/india/services"
-                className="group inline-flex items-center gap-2.5 text-[14px] font-semibold text-muted-foreground hover:text-accent transition-colors"
+                className="group inline-flex items-center gap-2.5 text-[14px] font-semibold text-white/40 hover:text-accent transition-colors"
               >
                 View all services
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1.5 transition-transform" />
@@ -171,26 +170,33 @@ export default function IndiaHome() {
             </motion.div>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-[1px] bg-border/50 rounded-3xl overflow-hidden shadow-2xl shadow-black/5">
+          <div className="border-t border-white/[0.08]">
             {services.map((s, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
+                transition={{ delay: i * 0.06, duration: 0.5 }}
               >
                 <Link
                   to={s.link}
-                  className="group relative block bg-card p-10 md:p-14 hover:bg-accent/[0.03] transition-all duration-700 h-full overflow-hidden"
+                  className="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 md:py-10 border-b border-white/[0.08] hover:border-accent/30 transition-colors duration-500 px-2"
                 >
-                  <div className="absolute top-0 left-0 w-0 h-[2px] bg-accent group-hover:w-full transition-all duration-700" />
-                  <span className="text-[11px] font-mono text-accent/70 tracking-[0.3em]">{s.num}</span>
-                  <h3 className="text-xl md:text-[26px] font-heading font-semibold mt-4 mb-3 group-hover:text-accent transition-colors duration-500 tracking-[-0.01em]">
-                    {s.title}
-                  </h3>
-                  <p className="text-[14px] text-muted-foreground leading-relaxed max-w-sm">{s.desc}</p>
-                  <ArrowUpRight className="h-5 w-5 mt-8 text-border group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500" />
+                  <div className="flex items-start md:items-center gap-6 md:gap-10 flex-1">
+                    <span className="text-[13px] font-body font-semibold text-accent/50 tracking-wider pt-1 md:pt-0">{s.num}</span>
+                    <div className="flex-1">
+                      <h3 className="text-xl md:text-[28px] font-heading font-semibold text-white group-hover:text-accent transition-colors duration-400 tracking-[-0.01em] leading-tight">
+                        {s.title}
+                      </h3>
+                      <p className="text-[14px] text-white/35 leading-relaxed mt-2 max-w-lg">{s.desc}</p>
+                    </div>
+                  </div>
+                  <div className="shrink-0 pl-16 md:pl-0">
+                    <div className="w-10 h-10 rounded-full border border-white/[0.1] group-hover:border-accent/40 group-hover:bg-accent/10 flex items-center justify-center transition-all duration-400">
+                      <ArrowUpRight className="h-4 w-4 text-white/25 group-hover:text-accent transition-colors duration-400" />
+                    </div>
+                  </div>
                 </Link>
               </motion.div>
             ))}
