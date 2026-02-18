@@ -1,24 +1,22 @@
 import { ClipboardCheck, LineChart, Monitor, Globe, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/animations";
 
 const services = [
   {
-    icon: ClipboardCheck,
-    title: "Audit & Assurance",
+    icon: ClipboardCheck, title: "Audit & Assurance",
     items: ["Statutory financial audits", "Internal audit", "Risk assessment"],
   },
   {
-    icon: LineChart,
-    title: "CFO Services",
+    icon: LineChart, title: "CFO Services",
     items: ["Virtual CFO support", "Budgeting and forecasting", "Financial analysis"],
   },
   {
-    icon: Monitor,
-    title: "Technology & ERP",
+    icon: Monitor, title: "Technology & ERP",
     items: ["Zoho ERP implementation", "Accounting module setup", "Workflow automation"],
   },
   {
-    icon: Globe,
-    title: "Cross-Border Compliance",
+    icon: Globe, title: "Cross-Border Compliance",
     items: ["Managing financial transactions between India and GCC", "Cross-border compliance management"],
   },
 ];
@@ -26,30 +24,42 @@ const services = [
 export default function IndiaServices() {
   return (
     <>
-      <section className="bg-primary text-primary-foreground py-20">
-        <div className="container text-center">
-          <h1 className="text-4xl font-heading font-bold mb-4">Our Services</h1>
-          <p className="max-w-2xl mx-auto text-primary-foreground/70">
-            Integrating financial expertise with technology-enabled systems to support informed decision-making.
-          </p>
+      <section className="bg-primary pt-32 pb-20">
+        <div className="container">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <p className="text-accent text-sm font-medium tracking-[0.3em] uppercase mb-4">Services</p>
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white max-w-xl leading-tight">
+              Financial Expertise Meets Technology
+            </h1>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-16 bg-card">
-        <div className="container grid gap-8 md:grid-cols-2">
+      <section className="py-20 bg-background">
+        <div className="container grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
           {services.map((s, i) => (
-            <div key={i} className="rounded-lg border bg-background p-8 hover:shadow-lg hover:border-accent transition-all">
-              <s.icon className="h-10 w-10 text-accent mb-4" />
-              <h3 className="text-xl font-heading font-semibold mb-4">{s.title}</h3>
-              <ul className="space-y-2">
+            <motion.div
+              key={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={i}
+              className="group rounded-xl border border-border bg-card p-8 hover:border-accent/40 hover:shadow-xl transition-all duration-500"
+            >
+              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+                <s.icon className="h-6 w-6 text-accent" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold mb-5">{s.title}</h3>
+              <ul className="space-y-3">
                 {s.items.map((item, j) => (
-                  <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <li key={j} className="flex items-start gap-3 text-sm text-muted-foreground">
                     <ChevronRight className="h-4 w-4 text-accent shrink-0 mt-0.5" />
                     {item}
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>

@@ -1,4 +1,6 @@
 import { Briefcase, Users, TrendingUp } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/animations";
 
 const perks = [
   { icon: Users, title: "Collaborative Culture", desc: "Work with a growing team of skilled professionals." },
@@ -9,33 +11,59 @@ const perks = [
 export default function IndiaCareers() {
   return (
     <>
-      <section className="bg-primary text-primary-foreground py-20">
-        <div className="container text-center">
-          <h1 className="text-4xl font-heading font-bold mb-4">Careers</h1>
-          <p className="max-w-2xl mx-auto text-primary-foreground/70">Join NRS Fynser India and grow your career.</p>
+      <section className="bg-primary pt-32 pb-20">
+        <div className="container">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <p className="text-accent text-sm font-medium tracking-[0.3em] uppercase mb-4">Careers</p>
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white max-w-xl leading-tight">
+              Join Our Team
+            </h1>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-16 bg-card">
-        <div className="container max-w-4xl">
-          <h2 className="text-2xl font-heading font-bold text-center mb-10">Why Join NRS Fynser?</h2>
-          <div className="grid gap-6 sm:grid-cols-3 mb-12">
+      <section className="py-20 bg-background">
+        <div className="container max-w-5xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
+            <motion.p variants={fadeUp} custom={0} className="text-accent text-sm font-medium tracking-[0.3em] uppercase mb-3">Why NRS Fynser</motion.p>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl font-heading font-bold">Build Your Career With Us</motion.h2>
+          </motion.div>
+
+          <div className="grid gap-6 sm:grid-cols-3 mb-16">
             {perks.map((p, i) => (
-              <div key={i} className="rounded-lg border bg-background p-6 text-center">
-                <p.icon className="mx-auto h-10 w-10 text-accent mb-3" />
+              <motion.div
+                key={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={i}
+                className="rounded-xl border border-border bg-card p-8 text-center hover:border-accent/40 transition-all"
+              >
+                <div className="mx-auto mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+                  <p.icon className="h-6 w-6 text-accent" />
+                </div>
                 <h3 className="font-heading font-semibold mb-2">{p.title}</h3>
                 <p className="text-sm text-muted-foreground">{p.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
-          <div className="rounded-lg border bg-background p-8 text-center">
-            <h3 className="font-heading font-semibold mb-2">Open Positions</h3>
-            <p className="text-sm text-muted-foreground mb-4">We're always looking for talented professionals. Check back soon for new openings.</p>
-            <a href="mailto:info@nrsfysner.com" className="inline-block rounded-md bg-accent px-6 py-2.5 text-sm font-semibold text-accent-foreground hover:bg-accent/90 transition-colors">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-xl border border-border bg-card p-10 text-center"
+          >
+            <h3 className="font-heading font-semibold text-xl mb-3">Open Positions</h3>
+            <p className="text-sm text-muted-foreground mb-6">We're always looking for talented professionals. Check back soon for new openings.</p>
+            <a
+              href="mailto:info@nrsfysner.com"
+              className="inline-flex items-center gap-2 bg-accent px-7 py-3 rounded text-sm font-semibold text-white tracking-wide uppercase hover:bg-accent/90 transition-colors"
+            >
               Send Your CV
             </a>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
