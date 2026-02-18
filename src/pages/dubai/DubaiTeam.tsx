@@ -1,4 +1,6 @@
 import { User } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/animations";
 
 const team = [
   {
@@ -21,24 +23,36 @@ const team = [
 export default function DubaiTeam() {
   return (
     <>
-      <section className="bg-primary text-primary-foreground py-20">
-        <div className="container text-center">
-          <h1 className="text-4xl font-heading font-bold mb-4">Our Leadership</h1>
-          <p className="max-w-2xl mx-auto text-primary-foreground/70">Meet the experienced professionals driving NRS Fynser Dubai.</p>
+      <section className="bg-primary pt-32 pb-20">
+        <div className="container">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <p className="text-accent text-sm font-medium tracking-[0.3em] uppercase mb-4">Leadership</p>
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white max-w-xl leading-tight">
+              The People Behind NRS Fynser
+            </h1>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-16 bg-card">
+      <section className="py-20 bg-background">
         <div className="container grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
           {team.map((m, i) => (
-            <div key={i} className="rounded-lg border bg-background p-8 text-center hover:shadow-lg transition-shadow">
-              <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+            <motion.div
+              key={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={i}
+              className="group rounded-xl border border-border bg-card p-8 text-center hover:border-accent/40 hover:shadow-xl transition-all duration-500"
+            >
+              <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
                 <User className="h-10 w-10 text-primary" />
               </div>
               <h3 className="font-heading font-semibold text-lg">{m.name}</h3>
-              <p className="text-sm text-accent font-medium mb-3">{m.role}</p>
-              <p className="text-sm text-muted-foreground">{m.bio}</p>
-            </div>
+              <p className="text-sm text-accent font-medium mb-4">{m.role}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{m.bio}</p>
+            </motion.div>
           ))}
         </div>
       </section>
