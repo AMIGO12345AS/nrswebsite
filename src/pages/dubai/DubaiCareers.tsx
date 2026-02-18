@@ -30,7 +30,7 @@ export default function DubaiCareers() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 justify-center mb-4">
               <div className="h-px w-10 bg-accent" />
-              <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">Why NRS Fynser</span>
+              <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">Why NRS & Associates</span>
               <div className="h-px w-10 bg-accent" />
             </motion.div>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[42px] font-heading font-bold tracking-[-0.02em]">Build Your Career</motion.h2>

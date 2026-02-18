@@ -40,7 +40,7 @@ export default function Navbar({ region }: NavbarProps) {
       <div className="container flex h-16 items-center justify-between">
         <Link to={`/${region}`} className="flex items-center gap-2">
           <span className="text-xl font-heading font-bold tracking-tight">
-            NRS <span className="text-accent">Fynser</span>
+            NRS <span className="text-accent">& Associates</span>
           </span>
         </Link>
 
