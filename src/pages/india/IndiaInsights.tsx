@@ -42,7 +42,7 @@ export default function IndiaInsights() {
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             <span className="text-accent text-[13px] font-medium tracking-[0.15em] uppercase mb-6 block">Perspectives</span>
             <h1 className="text-5xl md:text-[72px] font-heading font-bold text-white leading-[1.05] tracking-[-0.02em] max-w-3xl">
-              Insights &<br /><em className="font-normal text-white/60">Analysis</em>
+              Insights &<br /><span className="font-medium text-white/50">Analysis</span>
             </h1>
           </motion.div>
         </div>

@@ -13,7 +13,7 @@ export default function Footer({ region }: FooterProps) {
       <div className="container py-24 border-b border-white/[0.06]">
         <div className="max-w-4xl">
           <h2 className="text-4xl md:text-[56px] font-heading font-bold leading-[1.1] tracking-[-0.02em] mb-6">
-            Let's build something<br /><em className="font-normal text-white/40">together.</em>
+            Let's build something<br /><span className="font-medium text-white/35">together.</span>
           </h2>
           <Link
             to={`/${region}/contact`}
