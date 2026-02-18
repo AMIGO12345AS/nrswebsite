@@ -70,7 +70,7 @@ export default function IndiaHome() {
                 Financial Advisory
               </span>
             </div>
-            <h1 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-heading font-bold leading-[1.1] text-white mb-3 tracking-[-0.03em]">
+            <h1 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-heading font-bold leading-[1.15] text-white mb-3 tracking-[-0.01em]">
               Expert Financial
               <br />
               Advisory &
