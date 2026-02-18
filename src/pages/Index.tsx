@@ -14,7 +14,7 @@ const Index = () => {
     <div className="flex min-h-screen items-center justify-center bg-primary">
       <div className="text-center text-primary-foreground animate-pulse">
         <h1 className="text-3xl font-heading font-bold mb-2">
-          NRS <span className="text-accent">Fynser</span>
+          NRS <span className="text-accent">& Associates</span>
         </h1>
         <p className="text-sm text-primary-foreground/60">Loading...</p>
       </div>
