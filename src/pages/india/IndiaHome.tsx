@@ -116,24 +116,25 @@ export default function IndiaHome() {
       </section>
 
       {/* Stats strip */}
-      <section className="bg-foreground border-t border-white/[0.06]">
-        <div className="container py-10">
-          <div className="grid grid-cols-3 divide-x divide-white/[0.06]">
+      <section className="relative bg-foreground border-t border-white/[0.06] overflow-hidden">
+        <div className="absolute -top-32 -left-32 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+        <div className="container py-14 relative z-10">
+          <div className="grid grid-cols-3 divide-x divide-white/[0.08]">
             {[
-              { value: "1,000+", label: "Clients" },
-              { value: "50+", label: "Experts" },
-              { value: "2017", label: "Est." },
+              { value: "1,000+", label: "Clients Served" },
+              { value: "50+", label: "Expert Team" },
+              { value: "2017", label: "Established" },
             ].map((stat, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
+                transition={{ delay: i * 0.12, duration: 0.6 }}
                 className="text-center px-4"
               >
-                <p className="text-3xl md:text-4xl font-heading font-bold text-white">{stat.value}</p>
-                <p className="text-[12px] mt-1 text-white/30 tracking-[0.15em] uppercase">{stat.label}</p>
+                <p className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight">{stat.value}</p>
+                <p className="text-[11px] mt-2 text-white/40 tracking-[0.2em] uppercase font-medium">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -141,35 +142,36 @@ export default function IndiaHome() {
       </section>
 
       {/* Services — editorial grid */}
-      <section className="py-28 bg-background">
-        <div className="container">
+      <section className="relative py-32 bg-background overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-secondary/50 to-transparent" />
+        <div className="container relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-16"
+            className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-20"
           >
             <div>
-              <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-4">
-                <div className="h-px w-10 bg-accent" />
-                <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">Services</span>
+              <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-5">
+                <div className="h-px w-12 bg-accent" />
+                <span className="text-accent text-[12px] font-semibold tracking-[0.25em] uppercase">Services</span>
               </motion.div>
-              <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[42px] font-heading font-bold leading-tight tracking-[-0.02em]">
+              <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[48px] font-heading font-bold leading-[1.1] tracking-[-0.03em]">
                 What we do
               </motion.h2>
             </div>
             <motion.div variants={fadeUp} custom={2}>
               <Link
                 to="/india/services"
-                className="group inline-flex items-center gap-2 text-[14px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="group inline-flex items-center gap-2.5 text-[14px] font-semibold text-muted-foreground hover:text-accent transition-colors"
               >
                 View all services
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1.5 transition-transform" />
               </Link>
             </motion.div>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden">
+          <div className="grid md:grid-cols-2 gap-[1px] bg-border/50 rounded-3xl overflow-hidden shadow-2xl shadow-black/5">
             {services.map((s, i) => (
               <motion.div
                 key={i}
@@ -180,14 +182,15 @@ export default function IndiaHome() {
               >
                 <Link
                   to={s.link}
-                  className="group block bg-card p-10 md:p-12 hover:bg-secondary/50 transition-all duration-500 h-full"
+                  className="group relative block bg-card p-10 md:p-14 hover:bg-accent/[0.03] transition-all duration-700 h-full overflow-hidden"
                 >
-                  <span className="text-[12px] font-mono text-accent tracking-wider">{s.num}</span>
-                  <h3 className="text-xl md:text-2xl font-heading font-semibold mt-3 mb-3 group-hover:text-accent transition-colors">
+                  <div className="absolute top-0 left-0 w-0 h-[2px] bg-accent group-hover:w-full transition-all duration-700" />
+                  <span className="text-[11px] font-mono text-accent/70 tracking-[0.3em]">{s.num}</span>
+                  <h3 className="text-xl md:text-[26px] font-heading font-semibold mt-4 mb-3 group-hover:text-accent transition-colors duration-500 tracking-[-0.01em]">
                     {s.title}
                   </h3>
-                  <p className="text-[14px] text-muted-foreground leading-relaxed">{s.desc}</p>
-                  <ArrowUpRight className="h-5 w-5 mt-6 text-muted-foreground/30 group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                  <p className="text-[14px] text-muted-foreground leading-relaxed max-w-sm">{s.desc}</p>
+                  <ArrowUpRight className="h-5 w-5 mt-8 text-border group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500" />
                 </Link>
               </motion.div>
             ))}
@@ -196,33 +199,35 @@ export default function IndiaHome() {
       </section>
 
       {/* About teaser */}
-      <section className="py-28 bg-secondary/30">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+      <section className="relative py-32 bg-foreground overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/[0.07] rounded-full blur-[120px]" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px]" />
+        <div className="container relative z-10">
+          <div className="grid md:grid-cols-2 gap-20 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7 }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px w-10 bg-accent" />
-                <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">About</span>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-px w-12 bg-accent" />
+                <span className="text-accent text-[12px] font-semibold tracking-[0.25em] uppercase">About</span>
               </div>
-              <h2 className="text-3xl md:text-[38px] font-heading font-bold leading-tight tracking-[-0.02em] mb-6">
+              <h2 className="text-3xl md:text-[42px] font-heading font-bold leading-[1.1] tracking-[-0.02em] mb-7 text-white">
                 Driven by expertise,
                 <br />
                 powered by trust
               </h2>
-              <p className="text-[15px] text-muted-foreground leading-relaxed mb-8">
+              <p className="text-[15px] text-white/50 leading-[1.8] mb-10">
                 Established in 2017, NRS & Associates is a professionally driven accounting and advisory firm offering comprehensive services. With the trust of over 1,000 clients and a 50+ member expert team, we deliver solutions that are reliable, timely, and practical.
               </p>
               <Link
                 to="/india/about"
-                className="group inline-flex items-center gap-2 text-[14px] font-semibold text-foreground hover:text-accent transition-colors"
+                className="group inline-flex items-center gap-2.5 text-[14px] font-semibold text-white hover:text-accent transition-colors"
               >
                 Our Story
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1.5 transition-transform" />
               </Link>
             </motion.div>
 
@@ -230,7 +235,7 @@ export default function IndiaHome() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
               className="grid grid-cols-2 gap-4"
             >
               {[
@@ -239,10 +244,17 @@ export default function IndiaHome() {
                 { title: "Innovation", desc: "Modern tools for smarter solutions" },
                 { title: "Client-First", desc: "Exceeding expectations at every step" },
               ].map((p, i) => (
-                <div key={i} className="rounded-2xl bg-card border border-border p-6 hover:shadow-lg hover:border-accent/20 transition-all duration-500">
-                  <h4 className="font-heading font-semibold text-[15px] mb-1.5">{p.title}</h4>
-                  <p className="text-[13px] text-muted-foreground leading-relaxed">{p.desc}</p>
-                </div>
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + i * 0.08, duration: 0.5 }}
+                  className="rounded-2xl bg-white/[0.04] border border-white/[0.08] p-7 hover:border-accent/30 hover:bg-white/[0.06] transition-all duration-500 group"
+                >
+                  <h4 className="font-heading font-semibold text-[15px] mb-2 text-white group-hover:text-accent transition-colors">{p.title}</h4>
+                  <p className="text-[13px] text-white/40 leading-relaxed">{p.desc}</p>
+                </motion.div>
               ))}
             </motion.div>
           </div>
