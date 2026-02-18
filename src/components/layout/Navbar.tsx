@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Region, getOtherRegion } from "@/lib/region";
 import { cn } from "@/lib/utils";
@@ -38,73 +38,91 @@ export default function Navbar({ region }: NavbarProps) {
   const other = getOtherRegion(region);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-700",
         scrolled
-          ? "bg-primary/95 backdrop-blur-lg shadow-2xl"
+          ? "bg-white/80 backdrop-blur-2xl shadow-[0_1px_0_0_rgba(0,0,0,0.05)] border-b border-black/[0.04]"
           : "bg-transparent"
       )}
     >
-      <div className="container flex h-20 items-center justify-between">
-        <Link to={`/${region}`} className="flex items-center gap-2 group">
-          <div className="flex items-center gap-0.5">
-            <div className="flex gap-[2px]">
-              <div className="w-[3px] h-5 bg-accent rounded-sm" />
-              <div className="w-[3px] h-7 bg-accent rounded-sm" />
-            </div>
-            <span className="text-2xl font-heading font-bold tracking-tight text-white ml-1">
-              N<span className="text-accent">R</span>S
-            </span>
-          </div>
-          <span className="text-[10px] font-heading font-medium tracking-[0.2em] text-white/60 uppercase self-end mb-0.5">
+      <div className="container flex h-[72px] items-center justify-between">
+        {/* Clean text wordmark */}
+        <Link to={`/${region}`} className="flex items-baseline gap-1">
+          <span className={cn(
+            "text-[22px] font-heading font-bold tracking-[-0.02em] transition-colors duration-500",
+            scrolled ? "text-foreground" : "text-white"
+          )}>
+            NRS
+          </span>
+          <span className={cn(
+            "text-[11px] font-body font-medium tracking-[0.15em] uppercase transition-colors duration-500",
+            scrolled ? "text-muted-foreground" : "text-white/50"
+          )}>
             Fynser
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-0.5">
+        <div className="hidden lg:flex items-center gap-1">
           {links.map((link) => (
             <Link
               key={link.path}
               to={link.path}
               className={cn(
-                "relative px-4 py-2 text-[13px] font-medium tracking-wide uppercase transition-colors text-white/70 hover:text-white",
-                location.pathname === link.path && "text-white"
+                "relative px-3.5 py-2 text-[13px] font-medium transition-all duration-300",
+                scrolled
+                  ? location.pathname === link.path
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                  : location.pathname === link.path
+                    ? "text-white"
+                    : "text-white/55 hover:text-white"
               )}
             >
               {link.label}
               {location.pathname === link.path && (
                 <motion.div
-                  layoutId="nav-underline"
-                  className="absolute bottom-0 left-4 right-4 h-[2px] bg-accent"
-                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  layoutId="active-nav"
+                  className="absolute -bottom-0.5 left-3.5 right-3.5 h-[1.5px] bg-accent rounded-full"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
             </Link>
           ))}
+
+          <div className={cn("w-px h-5 mx-3", scrolled ? "bg-border" : "bg-white/15")} />
+
           <Link
             to={`/${other}`}
-            className="ml-6 flex items-center gap-1.5 rounded border border-white/20 px-4 py-2 text-[13px] font-medium tracking-wide uppercase text-white/70 transition-all hover:border-accent hover:text-accent"
+            className={cn(
+              "group flex items-center gap-1.5 px-4 py-2 text-[13px] font-medium rounded-full transition-all duration-300",
+              scrolled
+                ? "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                : "text-white/55 hover:text-white hover:bg-white/10"
+            )}
           >
-            <Globe className="h-3.5 w-3.5" />
-            {other === "dubai" ? "Dubai" : "India"}
+            {other === "dubai" ? "🇦🇪 Dubai" : "🇮🇳 India"}
+            <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
           </Link>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden p-2 text-white"
+          className={cn("lg:hidden p-2 rounded-lg transition-colors", scrolled ? "text-foreground" : "text-white")}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
@@ -112,39 +130,40 @@ export default function Navbar({ region }: NavbarProps) {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-primary/98 backdrop-blur-xl border-t border-white/10 overflow-hidden"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden bg-white/95 backdrop-blur-2xl border-t border-black/[0.04] shadow-xl"
           >
-            <div className="py-4">
+            <div className="py-3 px-2">
               {links.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "block px-8 py-3.5 text-sm font-medium tracking-wide uppercase transition-colors text-white/60 hover:text-white hover:bg-white/5",
-                    location.pathname === link.path && "text-accent border-l-2 border-accent bg-white/5"
+                    "block px-4 py-3 rounded-xl text-[15px] font-medium transition-all",
+                    location.pathname === link.path
+                      ? "text-foreground bg-secondary"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                   )}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="px-8 pt-4">
-                <Link
-                  to={`/${other}`}
-                  onClick={() => setOpen(false)}
-                  className="flex items-center gap-2 rounded border border-white/20 px-4 py-3 text-sm font-medium tracking-wide uppercase text-white/70 hover:border-accent hover:text-accent transition-all"
-                >
-                  <Globe className="h-4 w-4" />
-                  Switch to {other === "dubai" ? "Dubai" : "India"}
-                </Link>
-              </div>
+              <div className="mx-4 my-2 h-px bg-border" />
+              <Link
+                to={`/${other}`}
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2 mx-2 px-4 py-3 rounded-xl text-[15px] font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+              >
+                {other === "dubai" ? "🇦🇪 Switch to Dubai" : "🇮🇳 Switch to India"}
+              </Link>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 }

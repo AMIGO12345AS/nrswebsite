@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,44 +6,41 @@
 
 @layer base {
   :root {
-    --background: 200 15% 96%;
-    --foreground: 200 44% 14%;
+    --background: 210 20% 98%;
+    --foreground: 200 25% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 200 44% 14%;
+    --card-foreground: 200 25% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 200 44% 14%;
+    --popover-foreground: 200 25% 10%;
 
     --primary: 200 44% 21%;
-    --primary-foreground: 0 0% 97%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 200 39% 27%;
-    --secondary-foreground: 0 0% 97%;
+    --secondary: 200 20% 95%;
+    --secondary-foreground: 200 25% 10%;
 
-    --muted: 200 10% 90%;
-    --muted-foreground: 200 10% 40%;
+    --muted: 210 15% 93%;
+    --muted-foreground: 200 8% 46%;
 
-    --accent: 121 43% 50%;
+    --accent: 134 55% 42%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 200 10% 88%;
-    --input: 200 10% 88%;
-    --ring: 121 43% 50%;
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 134 55% 42%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --nrs-dark-blue: 200 44% 21%;
-    --nrs-green: 121 43% 50%;
-    --nrs-light-gray: 200 15% 96%;
+    --nrs-green: 134 55% 42%;
+    --nrs-light-gray: 210 20% 98%;
     --nrs-teal: 182 75% 25%;
-    --nrs-soft-green: 134 58% 78%;
-    --nrs-charcoal: 200 8% 24%;
-    --nrs-silver: 200 5% 86%;
-    --nrs-steel: 202 20% 58%;
+    --nrs-charcoal: 200 15% 15%;
   }
 }
 
@@ -61,20 +58,11 @@
   }
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Glass morphism utility */
-.glass {
-  background: rgba(30, 62, 79, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-.glass-light {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+/* Selection color */
+::selection {
+  background: hsl(134 55% 42% / 0.2);
 }
