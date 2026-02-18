@@ -31,7 +31,7 @@ export default function DubaiTeam() {
               <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">Leadership</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-white max-w-xl leading-tight tracking-[-0.02em]">
-              The People Behind NRS Fynser
+              The People Behind NRS & Associates
             </h1>
           </motion.div>
         </div>

@@ -38,7 +38,7 @@ export default function IndiaHome() {
       <section className="relative h-screen flex items-end overflow-hidden bg-foreground">
         <img
           src={nrsBuilding}
-          alt="NRS Fynser Building"
+          alt="NRS & Associates Building"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         {/* Only a subtle bottom gradient for text readability — no blue tint */}
@@ -202,7 +202,7 @@ export default function IndiaHome() {
                 powered by trust
               </h2>
               <p className="text-[15px] text-muted-foreground leading-relaxed mb-8">
-                Established in 2017, NRS Fynser is a professionally driven accounting and advisory firm offering comprehensive services. With the trust of over 1,000 clients and a 50+ member expert team, we deliver solutions that are reliable, timely, and practical.
+                Established in 2017, NRS & Associates is a professionally driven accounting and advisory firm offering comprehensive services. With the trust of over 1,000 clients and a 50+ member expert team, we deliver solutions that are reliable, timely, and practical.
               </p>
               <Link
                 to="/india/about"

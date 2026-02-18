@@ -59,7 +59,7 @@ export default function DubaiContact() {
               className="rounded-2xl border border-border overflow-hidden bg-card min-h-[380px]"
             >
               <iframe
-                title="NRS Fynser Dubai Office"
+                title="NRS & Associates Dubai Office"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1786!2d55.2828!3d25.2048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sTrade%20Centre%201%20-%20Dubai!5e0!3m2!1sen!2sae!4v1700000000000"
                 className="w-full h-full min-h-[380px]"
                 style={{ border: 0 }}

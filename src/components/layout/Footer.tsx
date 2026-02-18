@@ -36,7 +36,7 @@ export default function Footer({ region }: FooterProps) {
           <div className="md:col-span-1">
             <div className="flex items-baseline gap-1 mb-4">
               <span className="text-xl font-heading font-bold text-white">NRS</span>
-              <span className="text-[10px] font-body font-medium tracking-[0.15em] uppercase text-white/30">Fynser</span>
+              <span className="text-[10px] font-body font-medium tracking-[0.15em] uppercase text-white/30">& Associates</span>
             </div>
             <p className="text-[13px] text-white/35 leading-relaxed max-w-[240px]">
               Trusted financial advisory & business solutions since 2017.
@@ -103,7 +103,7 @@ export default function Footer({ region }: FooterProps) {
 
         <div className="mt-14 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-[12px] text-white/20">
-            © {new Date().getFullYear()} NRS Fynser. All rights reserved.
+            © {new Date().getFullYear()} NRS & Associates. All rights reserved.
           </p>
           <div className="flex gap-6 text-[12px] text-white/20">
             <span className="hover:text-white/40 cursor-pointer transition-colors">Privacy</span>

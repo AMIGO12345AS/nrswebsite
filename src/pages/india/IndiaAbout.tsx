@@ -34,7 +34,7 @@ export default function IndiaAbout() {
             viewport={{ once: true }}
             className="text-[17px] leading-[1.8] text-muted-foreground"
           >
-            Established in 2017, NRS Fynser is a professionally driven accounting and advisory firm offering comprehensive services in accounting, bookkeeping, internal audit, tax advisory, and ERP implementation. With the trust of over 1,000 clients and a 50+ member expert team, we deliver solutions that are reliable, timely, and practical.
+            Established in 2017, NRS & Associates is a professionally driven accounting and advisory firm offering comprehensive services in accounting, bookkeeping, internal audit, tax advisory, and ERP implementation. With the trust of over 1,000 clients and a 50+ member expert team, we deliver solutions that are reliable, timely, and practical.
           </motion.p>
         </div>
       </section>
