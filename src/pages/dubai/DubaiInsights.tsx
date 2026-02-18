@@ -1,4 +1,4 @@
-import { Calendar } from "lucide-react";
+import { Calendar, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/animations";
 
@@ -11,18 +11,21 @@ const articles = [
 export default function DubaiInsights() {
   return (
     <>
-      <section className="bg-primary pt-32 pb-20">
+      <section className="bg-foreground pt-36 pb-24">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <p className="text-accent text-sm font-medium tracking-[0.3em] uppercase mb-4">Insights</p>
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white max-w-xl leading-tight">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-px w-10 bg-accent" />
+              <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">Insights</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white max-w-xl leading-tight tracking-[-0.02em]">
               Latest Thinking
             </h1>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-20 bg-background">
+      <section className="py-24 bg-background">
         <div className="container grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
           {articles.map((a, i) => (
             <motion.div
@@ -32,17 +35,20 @@ export default function DubaiInsights() {
               viewport={{ once: true }}
               variants={fadeUp}
               custom={i}
-              className="group rounded-xl border border-border bg-card p-8 hover:border-accent/40 hover:shadow-xl transition-all duration-500 cursor-pointer"
+              className="group rounded-2xl border border-border bg-card p-8 hover:shadow-lg hover:border-accent/20 transition-all duration-500 cursor-pointer"
             >
-              <span className="inline-block rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent mb-4">{a.category}</span>
-              <h3 className="font-heading font-semibold text-lg mb-4 group-hover:text-accent transition-colors">{a.title}</h3>
-              <p className="flex items-center gap-2 text-xs text-muted-foreground">
-                <Calendar className="h-3.5 w-3.5" /> {a.date}
-              </p>
+              <span className="inline-block rounded-full bg-accent/10 px-3 py-1 text-[11px] font-medium text-accent mb-5">{a.category}</span>
+              <h3 className="font-heading font-semibold text-[17px] mb-4 group-hover:text-accent transition-colors leading-snug">{a.title}</h3>
+              <div className="flex items-center justify-between">
+                <p className="flex items-center gap-2 text-[12px] text-muted-foreground">
+                  <Calendar className="h-3.5 w-3.5" /> {a.date}
+                </p>
+                <ArrowUpRight className="h-4 w-4 text-muted-foreground/30 group-hover:text-accent transition-colors" />
+              </div>
             </motion.div>
           ))}
         </div>
-        <p className="text-center text-sm text-muted-foreground mt-12">More insights coming soon.</p>
+        <p className="text-center text-[13px] text-muted-foreground mt-14">More insights coming soon.</p>
       </section>
     </>
   );

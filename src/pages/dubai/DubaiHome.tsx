@@ -1,153 +1,236 @@
 import nrsBuilding from "@/assets/nrs-building.png";
 import { Link } from "react-router-dom";
-import { Shield, Building2, FileCheck, Landmark, ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/animations";
 
 const services = [
-  { icon: Shield, title: "Tax Advisory", desc: "UAE Corporate Tax, VAT, Transfer Pricing & Tax Audit representation" },
-  { icon: Building2, title: "Business Setup", desc: "Mainland & Free Zone incorporation, Trade license & Corporate structuring" },
-  { icon: FileCheck, title: "Compliance", desc: "AML/CFT framework, UBO compliance & Regulatory reporting" },
-  { icon: Landmark, title: "Capital & Finance", desc: "Bank finance, Working capital & Term loan support" },
+  {
+    num: "01",
+    title: "Tax Advisory",
+    desc: "UAE Corporate Tax, VAT, Transfer Pricing & Tax Audit representation",
+    link: "/dubai/services",
+  },
+  {
+    num: "02",
+    title: "Business Setup",
+    desc: "Mainland & Free Zone incorporation, Trade license & Corporate structuring",
+    link: "/dubai/services",
+  },
+  {
+    num: "03",
+    title: "Compliance",
+    desc: "AML/CFT framework, UBO compliance & Regulatory reporting",
+    link: "/dubai/services",
+  },
+  {
+    num: "04",
+    title: "Capital & Finance",
+    desc: "Bank finance, Working capital & Term loan support",
+    link: "/dubai/services",
+  },
 ];
 
 export default function DubaiHome() {
   return (
     <>
-      {/* Hero — Full viewport with building background */}
-      <section className="relative min-h-screen flex items-end overflow-hidden">
+      {/* Hero */}
+      <section className="relative h-screen flex items-end overflow-hidden bg-foreground">
         <img
           src={nrsBuilding}
           alt="NRS Fynser Building"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-        <div className="relative z-10 container pb-20 pt-40">
+        <div className="relative z-10 container pb-16 md:pb-24">
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
             className="max-w-2xl"
           >
-            <p className="text-accent text-sm font-medium tracking-[0.3em] uppercase mb-4">
-              FTA-Approved Tax Agent
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-[1.1] text-white mb-6">
-              Your Trusted Tax & Business Advisor in Dubai
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px w-10 bg-accent" />
+              <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">
+                FTA-Approved Tax Agent
+              </span>
+            </div>
+            <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-heading font-bold leading-[1.05] text-white mb-6 tracking-[-0.02em]">
+              Your Trusted
+              <br />
+              Tax & Business
+              <br />
+              <span className="text-accent">Advisor</span> in Dubai
             </h1>
-            <p className="text-lg text-white/60 leading-relaxed mb-10 max-w-lg">
-              We support businesses in meeting their statutory and regulatory obligations with confidence and precision.
+            <p className="text-[16px] text-white/50 leading-relaxed mb-10 max-w-md font-light">
+              Supporting businesses in meeting their statutory and regulatory obligations with confidence and precision.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/dubai/services"
-                className="group inline-flex items-center gap-2 bg-accent px-7 py-3.5 rounded text-sm font-semibold text-white tracking-wide uppercase hover:bg-accent/90 transition-all"
+                className="group inline-flex items-center gap-2.5 bg-accent text-white px-7 py-4 rounded-full text-[14px] font-semibold hover:bg-accent/90 transition-all hover:shadow-lg hover:shadow-accent/25"
               >
-                Our Services
+                Explore Services
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                to="/dubai/contact"
-                className="inline-flex items-center gap-2 border border-white/25 px-7 py-3.5 rounded text-sm font-semibold text-white/80 tracking-wide uppercase hover:border-white/50 hover:text-white transition-all"
+                to="/dubai/about"
+                className="group inline-flex items-center gap-2 text-white/50 hover:text-white text-[14px] font-medium transition-colors"
               >
-                Get in Touch
+                Learn More
+                <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 right-8 hidden md:flex flex-col items-center gap-2"
+        >
+          <span className="text-[10px] text-white/30 tracking-[0.2em] uppercase rotate-90 origin-center translate-y-6">Scroll</span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent"
+          />
+        </motion.div>
+      </section>
+
+      {/* Stats */}
+      <section className="bg-foreground border-t border-white/[0.06]">
+        <div className="container py-10">
+          <div className="grid grid-cols-3 divide-x divide-white/[0.06]">
+            {[
+              { value: "1,000+", label: "Clients" },
+              { value: "50+", label: "Experts" },
+              { value: "2017", label: "Est." },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="text-center px-4"
+              >
+                <p className="text-3xl md:text-4xl font-heading font-bold text-white">{stat.value}</p>
+                <p className="text-[12px] mt-1 text-white/30 tracking-[0.15em] uppercase">{stat.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Services */}
-      <section className="py-24 bg-background">
+      <section className="py-28 bg-background">
         <div className="container">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="text-center mb-16"
+            className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-16"
           >
-            <motion.p variants={fadeUp} custom={0} className="text-accent text-sm font-medium tracking-[0.3em] uppercase mb-3">
-              What We Do
-            </motion.p>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-4xl font-heading font-bold">
-              Comprehensive Advisory Services
-            </motion.h2>
-          </motion.div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((s, i) => (
-              <motion.div
-                key={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                variants={fadeUp}
-                custom={i}
-                className="group relative rounded-xl bg-card p-8 border border-border hover:border-accent/40 hover:shadow-xl transition-all duration-500"
-              >
-                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-                  <s.icon className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="font-heading font-semibold text-lg mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-xl" />
+            <div>
+              <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-4">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">Services</span>
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-primary" />
-        <div className="relative container">
-          <div className="grid gap-8 sm:grid-cols-3 text-center">
-            {[
-              { value: "1,000+", label: "Clients Served" },
-              { value: "50+", label: "Expert Professionals" },
-              { value: "2017", label: "Established" },
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                custom={i}
-              >
-                <p className="text-5xl font-heading font-bold text-accent">{stat.value}</p>
-                <p className="text-sm mt-2 text-white/50 tracking-wide uppercase">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-24 bg-background">
-        <div className="container text-center">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.h2 variants={fadeUp} custom={0} className="text-3xl md:text-4xl font-heading font-bold mb-4">
-              Ready to Get Started?
-            </motion.h2>
-            <motion.p variants={fadeUp} custom={1} className="text-muted-foreground mb-8 max-w-lg mx-auto">
-              Let us help you navigate the complexities of UAE regulations with confidence.
-            </motion.p>
+              <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[42px] font-heading font-bold leading-tight tracking-[-0.02em]">
+                What we do
+              </motion.h2>
+            </div>
             <motion.div variants={fadeUp} custom={2}>
               <Link
-                to="/dubai/contact"
-                className="group inline-flex items-center gap-2 bg-primary px-8 py-4 rounded text-sm font-semibold text-white tracking-wide uppercase hover:bg-secondary transition-all"
+                to="/dubai/services"
+                className="group inline-flex items-center gap-2 text-[14px] font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                Contact Our Team
+                View all services
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
           </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden">
+            {services.map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+              >
+                <Link
+                  to={s.link}
+                  className="group block bg-card p-10 md:p-12 hover:bg-secondary/50 transition-all duration-500 h-full"
+                >
+                  <span className="text-[12px] font-mono text-accent tracking-wider">{s.num}</span>
+                  <h3 className="text-xl md:text-2xl font-heading font-semibold mt-3 mb-3 group-hover:text-accent transition-colors">
+                    {s.title}
+                  </h3>
+                  <p className="text-[14px] text-muted-foreground leading-relaxed">{s.desc}</p>
+                  <ArrowUpRight className="h-5 w-5 mt-6 text-muted-foreground/30 group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About teaser */}
+      <section className="py-28 bg-secondary/30">
+        <div className="container">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-10 bg-accent" />
+                <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">About</span>
+              </div>
+              <h2 className="text-3xl md:text-[38px] font-heading font-bold leading-tight tracking-[-0.02em] mb-6">
+                Driven by expertise,
+                <br />
+                powered by trust
+              </h2>
+              <p className="text-[15px] text-muted-foreground leading-relaxed mb-8">
+                Established in 2017, NRS Fynser is a professionally driven accounting and advisory firm. With the trust of over 1,000 clients and a 50+ member expert team, we deliver solutions that are reliable, timely, and practical.
+              </p>
+              <Link
+                to="/dubai/about"
+                className="group inline-flex items-center gap-2 text-[14px] font-semibold text-foreground hover:text-accent transition-colors"
+              >
+                Our Story
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="grid grid-cols-2 gap-4"
+            >
+              {[
+                { title: "Integrity", desc: "Transparent and ethical operations" },
+                { title: "Excellence", desc: "High-quality through attention to detail" },
+                { title: "Innovation", desc: "Modern tools for smarter solutions" },
+                { title: "Client-First", desc: "Exceeding expectations at every step" },
+              ].map((p, i) => (
+                <div key={i} className="rounded-2xl bg-card border border-border p-6 hover:shadow-lg hover:border-accent/20 transition-all duration-500">
+                  <h4 className="font-heading font-semibold text-[15px] mb-1.5">{p.title}</h4>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed">{p.desc}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
     </>
