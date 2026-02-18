@@ -35,36 +35,36 @@ export default function IndiaHome() {
   return (
     <>
       {/* Hero — immersive, no tint */}
-      <section className="relative h-screen flex items-end overflow-hidden bg-foreground">
+      <section className="relative h-screen flex items-center overflow-hidden bg-foreground">
         <img
           src={nrsBuilding}
           alt="NRS & Associates Building"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Only a subtle bottom gradient for text readability — no blue tint */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
 
-        <div className="relative z-10 container pb-12 md:pb-16">
+        <div className="relative z-10 container">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-            className="max-w-2xl"
+            className="max-w-xl"
           >
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-4">
               <div className="h-px w-8 bg-accent" />
               <span className="text-accent text-[12px] font-medium tracking-[0.2em] uppercase">
                 Financial Advisory
               </span>
             </div>
-            <h1 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-heading font-bold leading-[1] text-white mb-3 tracking-[-0.03em]">
+            <h1 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-heading font-bold leading-[1] text-white mb-4 tracking-[-0.03em]">
               Expert Financial
               <br />
               Advisory &
               <br />
               <span className="text-accent">Cross-Border</span> Solutions
             </h1>
-            <p className="text-[15px] text-white/50 leading-relaxed mb-6 max-w-md font-light">
+            <p className="text-[15px] text-white/55 leading-relaxed mb-8 max-w-md font-light">
               Integrating financial expertise with technology-enabled systems to support informed decision-making.
             </p>
             <div className="flex flex-wrap items-center gap-3">
