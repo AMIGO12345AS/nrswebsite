@@ -1,43 +1,49 @@
-import { Briefcase, Users, TrendingUp, ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { fadeUp } from "@/lib/animations";
+import careersHero from "@/assets/careers-hero.jpg";
 
-const perks = [
-  { icon: Users, title: "Collaborative Culture", desc: "Work with 50+ professionals in a supportive, growth-oriented environment." },
-  { icon: TrendingUp, title: "Career Growth", desc: "Continuous learning opportunities and clear advancement pathways." },
-  { icon: Briefcase, title: "Impactful Work", desc: "Serve 1,000+ clients and make real business impact every day." },
+const values = [
+  { num: "01", title: "Mentorship First", desc: "Every team member is paired with senior leadership for hands-on guidance and real career development." },
+  { num: "02", title: "Real Client Work", desc: "From day one, you work directly with businesses — no sideline projects, no busy work." },
+  { num: "03", title: "Growth Without Ceilings", desc: "We promote from within. Your trajectory here is limited only by your ambition." },
 ];
 
 export default function DubaiCareers() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const cinematicOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
+
   return (
     <>
-      <section className="bg-foreground pt-36 pb-24">
-        <div className="container">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="h-px w-10 bg-accent" />
-              <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">Careers</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white max-w-xl leading-tight tracking-[-0.02em]">
-              Join Our Team
+      {/* Hero */}
+      <section ref={heroRef} className="relative h-[75vh] min-h-[520px] flex items-end overflow-hidden bg-foreground">
+        <img src={careersHero} alt="NRS team at work" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <motion.div style={{ opacity: cinematicOpacity }} className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/50 to-transparent" />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 70% 50% at 20% 90%, hsl(var(--accent) / 0.1), transparent)" }} />
+        <div className="relative z-10 container pb-20">
+          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+            <span className="text-accent text-[13px] font-medium tracking-[0.15em] uppercase mb-6 block">Careers</span>
+            <h1 className="text-5xl md:text-[64px] font-heading font-bold text-white leading-[1.1] tracking-[-0.02em] max-w-2xl">
+              Shape the Future<br />of <em className="font-normal text-white/60">Finance</em>
             </h1>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-24 bg-background">
+      {/* Why Us */}
+      <section className="py-28 bg-background">
         <div className="container max-w-5xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-            <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 justify-center mb-4">
-              <div className="h-px w-10 bg-accent" />
-              <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">Why NRS & Associates</span>
-              <div className="h-px w-10 bg-accent" />
-            </motion.div>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[42px] font-heading font-bold tracking-[-0.02em]">Build Your Career</motion.h2>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-20">
+            <motion.span variants={fadeUp} custom={0} className="text-accent text-[13px] font-medium tracking-[0.15em] uppercase mb-5 block">Why NRS</motion.span>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[48px] font-heading font-bold tracking-[-0.02em] leading-[1.1] max-w-xl">
+              Not just a job.<br />A <em className="font-normal text-muted-foreground">profession.</em>
+            </motion.h2>
           </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-3 mb-16">
-            {perks.map((p, i) => (
+          <div className="border-t border-border">
+            {values.map((v, i) => (
               <motion.div
                 key={i}
                 initial="hidden"
@@ -45,28 +51,33 @@ export default function DubaiCareers() {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={i}
-                className="rounded-2xl border border-border bg-card p-8 text-center hover:shadow-lg hover:border-accent/20 transition-all duration-500"
+                className="group border-b border-border py-12 grid md:grid-cols-[80px_1fr_1.5fr] gap-6 items-start"
               >
-                <div className="mx-auto mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10">
-                  <p.icon className="h-5 w-5 text-accent" />
-                </div>
-                <h3 className="font-heading font-semibold text-[15px] mb-2">{p.title}</h3>
-                <p className="text-[13px] text-muted-foreground leading-relaxed">{p.desc}</p>
+                <span className="text-[13px] font-body font-semibold text-accent/60 tracking-wider">{v.num}</span>
+                <h3 className="text-xl md:text-2xl font-heading font-semibold tracking-[-0.01em] group-hover:text-accent transition-colors">{v.title}</h3>
+                <p className="text-[15px] text-muted-foreground leading-[1.7]">{v.desc}</p>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-2xl border border-border bg-card p-12 text-center"
-          >
-            <h3 className="font-heading font-semibold text-xl mb-3">Open Positions</h3>
-            <p className="text-[14px] text-muted-foreground mb-8">We're always looking for talented professionals.</p>
+      {/* CTA */}
+      <section className="relative py-28 bg-foreground overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.05] blur-[120px] rounded-full" />
+        </div>
+        <div className="container max-w-3xl relative z-10 text-center">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <h2 className="text-3xl md:text-[42px] font-heading font-bold text-white tracking-[-0.02em] leading-[1.15] mb-6">
+              Ready to make<br />your move?
+            </h2>
+            <p className="text-[15px] text-white/45 leading-relaxed mb-10 max-w-md mx-auto">
+              We're always looking for exceptional people. Send us your CV and let's talk about where you fit.
+            </p>
             <a
               href="mailto:info@nrsfysner.com"
-              className="group inline-flex items-center gap-2 bg-accent text-white px-7 py-3.5 rounded-full text-[14px] font-semibold hover:bg-accent/90 transition-all hover:shadow-lg hover:shadow-accent/20"
+              className="group inline-flex items-center gap-2.5 bg-accent text-white px-8 py-4 rounded-full text-[14px] font-semibold hover:bg-accent/90 transition-all hover:shadow-lg hover:shadow-accent/20"
             >
               Send Your CV
               <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
