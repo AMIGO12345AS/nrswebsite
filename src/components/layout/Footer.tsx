@@ -1,113 +1,95 @@
 import { Link } from "react-router-dom";
 import { Region } from "@/lib/region";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface FooterProps {
   region: Region;
 }
 
 export default function Footer({ region }: FooterProps) {
-  const other = region === "india" ? "dubai" : "india";
-
   return (
-    <footer className="bg-foreground text-white/80">
-      {/* Top CTA strip */}
-      <div className="border-b border-white/[0.06]">
-        <div className="container py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div>
-            <h3 className="text-2xl md:text-3xl font-heading font-semibold text-white mb-2">
-              Let's work together
-            </h3>
-            <p className="text-white/40 text-sm">Ready to navigate your next challenge? We'd love to hear from you.</p>
-          </div>
+    <footer className="bg-foreground text-white">
+      {/* CTA */}
+      <div className="container py-24 border-b border-white/[0.06]">
+        <div className="max-w-4xl">
+          <h2 className="text-4xl md:text-[56px] font-heading font-bold leading-[1.1] tracking-[-0.02em] mb-6">
+            Let's build something<br /><em className="font-normal text-white/40">together.</em>
+          </h2>
           <Link
             to={`/${region}/contact`}
-            className="group inline-flex items-center gap-2 bg-accent text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-accent/90 transition-all hover:shadow-lg hover:shadow-accent/20"
+            className="group inline-flex items-center gap-2.5 text-[15px] font-semibold text-accent hover:text-white transition-colors"
           >
-            Get in Touch
+            Start a conversation
             <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>
       </div>
 
-      <div className="container py-14">
-        <div className="grid gap-10 md:grid-cols-4">
+      {/* Grid */}
+      <div className="container py-16">
+        <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr_1fr]">
           {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-baseline gap-1 mb-4">
-              <span className="text-xl font-heading font-bold text-white">NRS</span>
-              <span className="text-[10px] font-body font-medium tracking-[0.15em] uppercase text-white/30">& Associates</span>
+          <div>
+            <div className="flex items-baseline gap-1.5 mb-5">
+              <span className="text-2xl font-heading font-bold text-white">NRS</span>
+              <span className="text-[10px] font-body font-medium tracking-[0.15em] uppercase text-white/25">& Associates</span>
             </div>
-            <p className="text-[13px] text-white/35 leading-relaxed max-w-[240px]">
-              Trusted financial advisory & business solutions since 2017.
+            <p className="text-[14px] text-white/30 leading-[1.7] max-w-[280px]">
+              Trusted financial advisory & business solutions across India and the UAE since 2017.
             </p>
           </div>
 
           {/* Navigate */}
           <div>
-            <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/25 mb-5">Navigate</h4>
-            <div className="flex flex-col gap-2.5">
-              {[
-                { label: "About", path: `/${region}/about` },
-                { label: "Services", path: `/${region}/services` },
-                { label: "Team", path: `/${region}/team` },
-                { label: "Insights", path: `/${region}/insights` },
-                { label: "Careers", path: `/${region}/careers` },
-              ].map((link) => (
+            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/20 mb-6">Navigate</h4>
+            <div className="flex flex-col gap-3">
+              {["About", "Services", "Team", "Insights", "Careers"].map((label) => (
                 <Link
-                  key={link.path}
-                  to={link.path}
-                  className="group flex items-center gap-1 text-[13px] text-white/40 hover:text-white transition-colors w-fit"
+                  key={label}
+                  to={`/${region}/${label.toLowerCase()}`}
+                  className="text-[14px] text-white/35 hover:text-white transition-colors w-fit"
                 >
-                  {link.label}
-                  <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  {label}
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Region */}
+          {/* Offices */}
           <div>
-            <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/25 mb-5">Offices</h4>
-            <div className="flex flex-col gap-2.5">
-              <Link to="/india" className={`text-[13px] transition-colors w-fit ${region === 'india' ? 'text-accent' : 'text-white/40 hover:text-white'}`}>
-                🇮🇳 India
+            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/20 mb-6">Offices</h4>
+            <div className="flex flex-col gap-3">
+              <Link to="/india" className={`text-[14px] transition-colors w-fit ${region === 'india' ? 'text-accent' : 'text-white/35 hover:text-white'}`}>
+                India
               </Link>
-              <Link to="/dubai" className={`text-[13px] transition-colors w-fit ${region === 'dubai' ? 'text-accent' : 'text-white/40 hover:text-white'}`}>
-                🇦🇪 Dubai
+              <Link to="/dubai" className={`text-[14px] transition-colors w-fit ${region === 'dubai' ? 'text-accent' : 'text-white/35 hover:text-white'}`}>
+                Dubai, UAE
               </Link>
             </div>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/25 mb-5">Contact</h4>
-            <div className="flex flex-col gap-3 text-[13px] text-white/40">
-              <a href="mailto:info@nrsfysner.com" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Mail className="h-3.5 w-3.5" /> info@nrsfysner.com
-              </a>
+            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/20 mb-6">Contact</h4>
+            <div className="flex flex-col gap-3 text-[14px] text-white/35">
+              <a href="mailto:info@nrsfysner.com" className="hover:text-white transition-colors">info@nrsfysner.com</a>
               {region === "dubai" && (
-                <>
-                  <a href="tel:+97143437233" className="flex items-center gap-2 hover:text-white transition-colors">
-                    <Phone className="h-3.5 w-3.5" /> +971 4343 72 33
-                  </a>
-                  <p className="flex items-start gap-2">
-                    <MapPin className="h-3.5 w-3.5 shrink-0 mt-0.5" />
-                    Dubai, UAE
-                  </p>
-                </>
+                <a href="tel:+97143437233" className="hover:text-white transition-colors">+971 4343 72 33</a>
               )}
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-14 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-[12px] text-white/20">
-            © {new Date().getFullYear()} NRS & Associates. All rights reserved.
+      {/* Bottom */}
+      <div className="container pb-8">
+        <div className="pt-6 border-t border-white/[0.05] flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-[12px] text-white/15">
+            © {new Date().getFullYear()} NRS & Associates
           </p>
-          <div className="flex gap-6 text-[12px] text-white/20">
-            <span className="hover:text-white/40 cursor-pointer transition-colors">Privacy</span>
-            <span className="hover:text-white/40 cursor-pointer transition-colors">Terms</span>
+          <div className="flex gap-8 text-[12px] text-white/15">
+            <span className="hover:text-white/30 cursor-pointer transition-colors">Privacy</span>
+            <span className="hover:text-white/30 cursor-pointer transition-colors">Terms</span>
           </div>
         </div>
       </div>

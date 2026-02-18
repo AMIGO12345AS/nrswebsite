@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,41 +6,35 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 200 25% 10%;
+    --background: 40 12% 97%;
+    --foreground: 220 20% 10%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 200 25% 10%;
+    --card: 40 10% 99%;
+    --card-foreground: 220 20% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 200 25% 10%;
+    --popover: 40 10% 99%;
+    --popover-foreground: 220 20% 10%;
 
-    --primary: 200 44% 21%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 220 30% 18%;
+    --primary-foreground: 40 10% 97%;
 
-    --secondary: 200 20% 95%;
-    --secondary-foreground: 200 25% 10%;
+    --secondary: 40 10% 94%;
+    --secondary-foreground: 220 20% 10%;
 
-    --muted: 210 15% 93%;
-    --muted-foreground: 200 8% 46%;
+    --muted: 40 8% 91%;
+    --muted-foreground: 220 8% 45%;
 
-    --accent: 134 55% 42%;
+    --accent: 158 45% 32%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 90%;
-    --input: 210 15% 90%;
-    --ring: 134 55% 42%;
+    --border: 40 10% 89%;
+    --input: 40 10% 89%;
+    --ring: 158 45% 32%;
 
     --radius: 0.75rem;
-
-    --nrs-dark-blue: 200 44% 21%;
-    --nrs-green: 134 55% 42%;
-    --nrs-light-gray: 210 20% 98%;
-    --nrs-teal: 182 75% 25%;
-    --nrs-charcoal: 200 15% 15%;
   }
 }
 
@@ -62,7 +56,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Selection color */
 ::selection {
-  background: hsl(134 55% 42% / 0.2);
+  background: hsl(158 45% 32% / 0.15);
 }
