@@ -6,37 +6,37 @@ import { useRef } from "react";
 import { fadeUp } from "@/lib/animations";
 
 const services = [
-  {
-    num: "01",
-    title: "Tax Advisory",
-    desc: "UAE Corporate Tax, VAT, Transfer Pricing & Tax Audit representation",
-    link: "/dubai/services",
-  },
-  {
-    num: "02",
-    title: "Business Setup",
-    desc: "Mainland & Free Zone incorporation, Trade license & Corporate structuring",
-    link: "/dubai/services",
-  },
-  {
-    num: "03",
-    title: "Compliance",
-    desc: "AML/CFT framework, UBO compliance & Regulatory reporting",
-    link: "/dubai/services",
-  },
-  {
-    num: "04",
-    title: "Capital & Finance",
-    desc: "Bank finance, Working capital & Term loan support",
-    link: "/dubai/services",
-  },
-];
+{
+  num: "01",
+  title: "Tax Advisory",
+  desc: "UAE Corporate Tax, VAT, Transfer Pricing & Tax Audit representation",
+  link: "/dubai/services"
+},
+{
+  num: "02",
+  title: "Business Setup",
+  desc: "Mainland & Free Zone incorporation, Trade license & Corporate structuring",
+  link: "/dubai/services"
+},
+{
+  num: "03",
+  title: "Compliance",
+  desc: "AML/CFT framework, UBO compliance & Regulatory reporting",
+  link: "/dubai/services"
+},
+{
+  num: "04",
+  title: "Capital & Finance",
+  desc: "Bank finance, Working capital & Term loan support",
+  link: "/dubai/services"
+}];
+
 
 export default function DubaiHome() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end start"]
   });
   const cinematicOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
 
@@ -47,26 +47,26 @@ export default function DubaiHome() {
         <img
           src={nrsBuilding}
           alt="NRS & Associates Building"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
+          className="absolute inset-0 w-full h-full object-cover object-center" />
+
         {/* Base readability gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         {/* Cinematic bottom-left fade — disappears on scroll */}
         <motion.div
           style={{ opacity: cinematicOpacity }}
-          className="absolute inset-0 bg-[radial-gradient(ellipse_120%_100%_at_0%_100%,rgba(0,0,0,0.95)_0%,rgba(0,0,0,0.6)_40%,rgba(0,0,0,0.25)_65%,transparent_85%)]"
-        />
+          className="absolute inset-0 bg-[radial-gradient(ellipse_120%_100%_at_0%_100%,rgba(0,0,0,0.95)_0%,rgba(0,0,0,0.6)_40%,rgba(0,0,0,0.25)_65%,transparent_85%)]" />
+
 
         <div className="relative z-10 container pb-12 md:pb-16">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-            className="max-w-2xl"
-          >
+            className="max-w-2xl">
+
             <div className="flex items-center gap-2 mb-3">
               <div className="h-px w-8 bg-accent" />
-              <span className="text-accent text-[12px] font-medium tracking-[0.2em] uppercase">
+              <span className="text-[12px] font-medium tracking-[0.2em] uppercase text-[#f0f0f0]">
                 FTA-Approved Tax Agent
               </span>
             </div>
@@ -83,15 +83,15 @@ export default function DubaiHome() {
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 to="/dubai/services"
-                className="group inline-flex items-center gap-2.5 bg-accent text-white px-7 py-4 rounded-full text-[14px] font-semibold hover:bg-accent/90 transition-all hover:shadow-lg hover:shadow-accent/25"
-              >
+                className="group inline-flex items-center gap-2.5 bg-accent text-white px-7 py-4 rounded-full text-[14px] font-semibold hover:bg-accent/90 transition-all hover:shadow-lg hover:shadow-accent/25">
+
                 Explore Services
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/dubai/about"
-                className="group inline-flex items-center gap-2 text-white/50 hover:text-white text-[14px] font-medium transition-colors"
-              >
+                className="group inline-flex items-center gap-2 text-white/50 hover:text-white text-[14px] font-medium transition-colors">
+
                 Learn More
                 <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
@@ -103,14 +103,14 @@ export default function DubaiHome() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-8 right-8 hidden md:flex flex-col items-center gap-2"
-        >
+          className="absolute bottom-8 right-8 hidden md:flex flex-col items-center gap-2">
+
           <span className="text-[10px] text-white/30 tracking-[0.2em] uppercase rotate-90 origin-center translate-y-6">Scroll</span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent"
-          />
+            className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent" />
+
         </motion.div>
       </section>
 
@@ -121,22 +121,22 @@ export default function DubaiHome() {
         <div className="container py-14 relative z-10">
           <div className="grid grid-cols-3 divide-x divide-white/[0.08]">
             {[
-              { value: "1,000+", label: "Clients Served" },
-              { value: "50+", label: "Expert Team" },
-              { value: "2017", label: "Established" },
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12, duration: 0.6 }}
-                className="text-center px-4"
-              >
+            { value: "1,000+", label: "Clients Served" },
+            { value: "50+", label: "Expert Team" },
+            { value: "2017", label: "Established" }].
+            map((stat, i) =>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.12, duration: 0.6 }}
+              className="text-center px-4">
+
                 <p className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight">{stat.value}</p>
                 <p className="text-[11px] mt-2 text-white/40 tracking-[0.2em] uppercase font-medium">{stat.label}</p>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -151,8 +151,8 @@ export default function DubaiHome() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-20"
-          >
+            className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-20">
+
             <div>
               <motion.span variants={fadeUp} custom={0} className="text-accent text-[13px] font-medium tracking-[0.15em] uppercase mb-5 block">Services</motion.span>
               <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[52px] font-heading font-bold leading-[1.08] tracking-[-0.02em] text-white">
@@ -162,8 +162,8 @@ export default function DubaiHome() {
             <motion.div variants={fadeUp} custom={2}>
               <Link
                 to="/dubai/services"
-                className="group inline-flex items-center gap-2.5 text-[14px] font-semibold text-white/40 hover:text-accent transition-colors"
-              >
+                className="group inline-flex items-center gap-2.5 text-[14px] font-semibold text-white/40 hover:text-accent transition-colors">
+
                 View all services
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1.5 transition-transform" />
               </Link>
@@ -171,18 +171,18 @@ export default function DubaiHome() {
           </motion.div>
 
           <div className="border-t border-white/[0.08]">
-            {services.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06, duration: 0.5 }}
-              >
+            {services.map((s, i) =>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.06, duration: 0.5 }}>
+
                 <Link
-                  to={s.link}
-                  className="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 md:py-10 border-b border-white/[0.08] hover:border-accent/30 transition-colors duration-500 px-2"
-                >
+                to={s.link}
+                className="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 md:py-10 border-b border-white/[0.08] hover:border-accent/30 transition-colors duration-500 px-2">
+
                   <div className="flex items-start md:items-center gap-6 md:gap-10 flex-1">
                     <span className="text-[13px] font-body font-semibold text-accent/50 tracking-wider pt-1 md:pt-0">{s.num}</span>
                     <div className="flex-1">
@@ -199,7 +199,7 @@ export default function DubaiHome() {
                   </div>
                 </Link>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -215,8 +215,8 @@ export default function DubaiHome() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
+              transition={{ duration: 0.7 }}>
+
               <div className="flex items-center gap-3 mb-5">
                 <div className="h-px w-12 bg-accent" />
                 <span className="text-accent text-[12px] font-semibold tracking-[0.25em] uppercase">About</span>
@@ -231,8 +231,8 @@ export default function DubaiHome() {
               </p>
               <Link
                 to="/dubai/about"
-                className="group inline-flex items-center gap-2.5 text-[14px] font-semibold text-white hover:text-accent transition-colors"
-              >
+                className="group inline-flex items-center gap-2.5 text-[14px] font-semibold text-white hover:text-accent transition-colors">
+
                 Our Story
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1.5 transition-transform" />
               </Link>
@@ -243,30 +243,30 @@ export default function DubaiHome() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="grid grid-cols-2 gap-4"
-            >
+              className="grid grid-cols-2 gap-4">
+
               {[
-                { title: "Integrity", desc: "Transparent and ethical operations" },
-                { title: "Excellence", desc: "High-quality through attention to detail" },
-                { title: "Innovation", desc: "Modern tools for smarter solutions" },
-                { title: "Client-First", desc: "Exceeding expectations at every step" },
-              ].map((p, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + i * 0.08, duration: 0.5 }}
-                  className="rounded-2xl bg-white/[0.04] border border-white/[0.08] p-7 hover:border-accent/30 hover:bg-white/[0.06] transition-all duration-500 group"
-                >
+              { title: "Integrity", desc: "Transparent and ethical operations" },
+              { title: "Excellence", desc: "High-quality through attention to detail" },
+              { title: "Innovation", desc: "Modern tools for smarter solutions" },
+              { title: "Client-First", desc: "Exceeding expectations at every step" }].
+              map((p, i) =>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + i * 0.08, duration: 0.5 }}
+                className="rounded-2xl bg-white/[0.04] border border-white/[0.08] p-7 hover:border-accent/30 hover:bg-white/[0.06] transition-all duration-500 group">
+
                   <h4 className="font-heading font-semibold text-[15px] mb-2 text-white group-hover:text-accent transition-colors">{p.title}</h4>
                   <p className="text-[13px] text-white/40 leading-relaxed">{p.desc}</p>
                 </motion.div>
-              ))}
+              )}
             </motion.div>
           </div>
         </div>
       </section>
-    </>
-  );
+    </>);
+
 }
