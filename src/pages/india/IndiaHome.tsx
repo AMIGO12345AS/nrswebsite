@@ -217,7 +217,7 @@ export default function IndiaHome() {
               transition={{ duration: 0.7 }}>
 
               <div className="flex items-center gap-3 mb-5">
-                <div className="h-px w-12 bg-accent" />
+                <div className="h-px w-12 bg-[#49b64c]" />
                 <span className="text-[12px] font-semibold tracking-[0.25em] uppercase text-[#49b64c]">About</span>
               </div>
               <h2 className="text-3xl md:text-[42px] font-heading font-bold leading-[1.1] tracking-[-0.02em] mb-7 text-white">
