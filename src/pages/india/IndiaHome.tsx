@@ -66,7 +66,7 @@ export default function IndiaHome() {
 
             <div className="flex items-center gap-2 mb-3">
               <div className="h-px w-8 bg-[#f0f0f0]" />
-              <span className="text-accent text-[12px] font-medium tracking-[0.2em] uppercase">
+              <span className="text-[12px] font-medium tracking-[0.2em] uppercase text-[#f0f0f0]">
                 Financial Advisory
               </span>
             </div>
