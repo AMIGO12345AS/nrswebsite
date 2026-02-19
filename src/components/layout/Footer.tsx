@@ -17,8 +17,8 @@ export default function Footer({ region }: FooterProps) {
           </h2>
           <Link
             to={`/${region}/contact`}
-            className="group inline-flex items-center gap-2.5 text-[15px] font-semibold text-accent hover:text-white transition-colors"
-          >
+            className="group inline-flex items-center gap-2.5 text-[15px] font-semibold transition-colors text-[#49b64c]">
+
             Start a conversation
             <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
@@ -43,15 +43,15 @@ export default function Footer({ region }: FooterProps) {
           <div>
             <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/20 mb-6">Navigate</h4>
             <div className="flex flex-col gap-3">
-              {["About", "Services", "Team", "Insights", "Careers"].map((label) => (
-                <Link
-                  key={label}
-                  to={`/${region}/${label.toLowerCase()}`}
-                  className="text-[14px] text-white/35 hover:text-white transition-colors w-fit"
-                >
+              {["About", "Services", "Team", "Insights", "Careers"].map((label) =>
+              <Link
+                key={label}
+                to={`/${region}/${label.toLowerCase()}`}
+                className="text-[14px] text-white/35 hover:text-white transition-colors w-fit">
+
                   {label}
                 </Link>
-              ))}
+              )}
             </div>
           </div>
 
@@ -73,9 +73,9 @@ export default function Footer({ region }: FooterProps) {
             <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/20 mb-6">Contact</h4>
             <div className="flex flex-col gap-3 text-[14px] text-white/35">
               <a href="mailto:info@nrsfysner.com" className="hover:text-white transition-colors">info@nrsfysner.com</a>
-              {region === "dubai" && (
-                <a href="tel:+97143437233" className="hover:text-white transition-colors">+971 4343 72 33</a>
-              )}
+              {region === "dubai" &&
+              <a href="tel:+97143437233" className="hover:text-white transition-colors">+971 4343 72 33</a>
+              }
             </div>
           </div>
         </div>
@@ -93,6 +93,6 @@ export default function Footer({ region }: FooterProps) {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 }
