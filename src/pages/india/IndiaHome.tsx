@@ -218,7 +218,7 @@ export default function IndiaHome() {
 
               <div className="flex items-center gap-3 mb-5">
                 <div className="h-px w-12 bg-accent" />
-                <span className="text-accent text-[12px] font-semibold tracking-[0.25em] uppercase">About</span>
+                <span className="text-[12px] font-semibold tracking-[0.25em] uppercase text-[#49b64c]">About</span>
               </div>
               <h2 className="text-3xl md:text-[42px] font-heading font-bold leading-[1.1] tracking-[-0.02em] mb-7 text-white">
                 Driven by expertise,
