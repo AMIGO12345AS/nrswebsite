@@ -65,7 +65,7 @@ export default function DubaiHome() {
             className="max-w-2xl">
 
             <div className="flex items-center gap-2 mb-3">
-              <div className="h-px w-8 bg-accent" />
+              <div className="h-px w-8 bg-[#f0f0f0]" />
               <span className="text-[12px] font-medium tracking-[0.2em] uppercase text-[#f0f0f0]">
                 FTA-Approved Tax Agent
               </span>
