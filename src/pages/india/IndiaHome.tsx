@@ -47,7 +47,7 @@ export default function IndiaHome() {
         <img
           src={nrsBuilding}
           alt="NRS & Associates Building"
-          className="absolute inset-0 w-full h-full object-cover object-[15%_center] md:object-center" />
+          className="absolute inset-0 w-full h-full object-cover object-[30%_center] md:object-center" />
 
         {/* Base readability gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
