@@ -77,7 +77,6 @@ export default function DubaiServices() {
                 className={`group relative rounded-2xl overflow-hidden ${
                   i === 0 || i === 3 ? "md:col-span-7" : "md:col-span-5"
                 }`}
-                style={{ minHeight: "380px" }}
               >
                 {/* Background image */}
                 <img
@@ -93,7 +92,7 @@ export default function DubaiServices() {
                 <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/10 transition-colors duration-700 mix-blend-overlay" />
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col h-full justify-between p-6 md:p-12" style={{ minHeight: "380px" }}>
+                <div className="relative z-10 flex flex-col h-full justify-between p-6 md:p-12 min-h-[300px] md:min-h-[380px]">
                   {/* Top row */}
                   <div className="flex items-center justify-between">
                     <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 border border-white/20 backdrop-blur-sm group-hover:bg-accent/30 group-hover:border-accent/40 transition-all duration-500">

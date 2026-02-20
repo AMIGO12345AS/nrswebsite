@@ -22,7 +22,7 @@ export default function DubaiCareers() {
         <img src={careersHero} alt="NRS team at work" className="absolute inset-0 w-full h-full object-cover object-center" />
         <motion.div style={{ opacity: cinematicOpacity }} className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/50 to-transparent" />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 70% 50% at 20% 90%, hsl(var(--accent) / 0.1), transparent)" }} />
-        <div className="relative z-10 container pb-20">
+        <div className="relative z-10 container pb-10 md:pb-20">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             <span className="text-accent text-[13px] font-medium tracking-[0.15em] uppercase mb-6 block">Careers</span>
             <h1 className="text-5xl md:text-[64px] font-heading font-bold text-white leading-[1.1] tracking-[-0.02em] max-w-2xl">
@@ -66,7 +66,7 @@ export default function DubaiCareers() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-28 bg-foreground overflow-hidden">
+      <section className="relative py-16 md:py-28 bg-foreground overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.05] blur-[120px] rounded-full" />
         </div>
