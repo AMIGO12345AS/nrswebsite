@@ -6,30 +6,30 @@ import { useRef } from "react";
 import { fadeUp } from "@/lib/animations";
 
 const services = [
-{
-  num: "01",
-  title: "Audit & Assurance",
-  desc: "Statutory financial audits, Internal audit & Risk assessment",
-  link: "/india/services"
-},
-{
-  num: "02",
-  title: "CFO Services",
-  desc: "Virtual CFO support, Budgeting, Forecasting & Financial analysis",
-  link: "/india/services"
-},
-{
-  num: "03",
-  title: "Technology & ERP",
-  desc: "Zoho ERP implementation, Accounting modules & Workflow automation",
-  link: "/india/services"
-},
-{
-  num: "04",
-  title: "Cross-Border",
-  desc: "India-GCC financial transactions and compliance management",
-  link: "/india/services"
-}];
+  {
+    num: "01",
+    title: "Audit & Assurance",
+    desc: "Statutory financial audits, Internal audit & Risk assessment",
+    link: "/india/services"
+  },
+  {
+    num: "02",
+    title: "CFO Services",
+    desc: "Virtual CFO support, Budgeting, Forecasting & Financial analysis",
+    link: "/india/services"
+  },
+  {
+    num: "03",
+    title: "Technology & ERP",
+    desc: "Zoho ERP implementation, Accounting modules & Workflow automation",
+    link: "/india/services"
+  },
+  {
+    num: "04",
+    title: "Cross-Border",
+    desc: "India-GCC financial transactions and compliance management",
+    link: "/india/services"
+  }];
 
 
 export default function IndiaHome() {
@@ -51,22 +51,22 @@ export default function IndiaHome() {
 
         {/* Base readability gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        {/* Cinematic bottom-left fade — disappears on scroll */}
+        {/* Cinematic bottom-left fade — adjusted for better text legibilty (premium audit change) */}
         <motion.div
           style={{ opacity: cinematicOpacity }}
-          className="absolute inset-0 bg-[radial-gradient(ellipse_120%_100%_at_0%_100%,rgba(0,0,0,0.95)_0%,rgba(0,0,0,0.6)_40%,rgba(0,0,0,0.25)_65%,transparent_85%)]" />
+          className="absolute inset-0 bg-[radial-gradient(ellipse_120%_100%_at_0%_100%,rgba(0,0,0,0.95)_0%,rgba(0,0,0,0.7)_40%,rgba(0,0,0,0.35)_65%,transparent_85%)]" />
 
 
-        <div className="relative z-10 container pb-12 md:pb-16">
+        <div className="relative z-10 container pb-12 md:pb-16 flex flex-col justify-end">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-            className="max-w-2xl">
+            className="w-full max-w-[90vw] md:max-w-4xl lg:max-w-[1000px]">
 
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-4">
               <div className="h-px w-8 bg-[#f0f0f0]" />
-              <span className="text-[12px] font-medium tracking-[0.2em] uppercase text-[#f0f0f0]">
+              <span className="text-[12px] font-medium tracking-[0.2em] uppercase text-[#f0f0f0] pt-0.5">
                 Financial Advisory
               </span>
             </div>
@@ -83,17 +83,17 @@ export default function IndiaHome() {
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 to="/india/services"
-                className="group inline-flex items-center gap-2.5 bg-accent text-white px-7 py-4 rounded-full text-[14px] font-semibold hover:bg-accent/90 transition-all hover:shadow-lg hover:shadow-accent/25">
+                className="group inline-flex items-center gap-2.5 bg-accent text-white px-7 py-4 rounded-full text-[14px] font-semibold hover:bg-accent/90 transition-all duration-500 ease-out hover:shadow-lg hover:shadow-accent/25">
 
                 Explore Services
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-500 ease-out" />
               </Link>
               <Link
                 to="/india/about"
-                className="group inline-flex items-center gap-2 text-white/50 hover:text-white text-[14px] font-medium transition-colors">
+                className="group inline-flex items-center gap-2 text-white/50 hover:text-white text-[14px] font-medium transition-colors duration-500">
 
                 Learn More
-                <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-500 ease-out" />
               </Link>
             </div>
           </motion.div>
@@ -121,22 +121,22 @@ export default function IndiaHome() {
         <div className="container py-14 relative z-10">
           <div className="grid grid-cols-3 divide-x divide-white/[0.08]">
             {[
-            { value: "1,000+", label: "Clients Served" },
-            { value: "50+", label: "Expert Team" },
-            { value: "2017", label: "Established" }].
-            map((stat, i) =>
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.12, duration: 0.6 }}
-              className="text-center px-4">
+              { value: "1,000+", label: "Clients Served" },
+              { value: "50+", label: "Expert Team" },
+              { value: "2017", label: "Established" }].
+              map((stat, i) =>
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.12, duration: 0.6 }}
+                  className="text-center px-4">
 
-                <p className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight">{stat.value}</p>
-                <p className="text-[11px] mt-2 text-white/40 tracking-[0.2em] uppercase font-medium">{stat.label}</p>
-              </motion.div>
-            )}
+                  <p className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight">{stat.value}</p>
+                  <p className="text-[11px] mt-2 text-white/40 tracking-[0.2em] uppercase font-medium">{stat.label}</p>
+                </motion.div>
+              )}
           </div>
         </div>
       </section>
@@ -172,16 +172,16 @@ export default function IndiaHome() {
 
           <div className="border-t border-white/[0.08]">
             {services.map((s, i) =>
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06, duration: 0.5 }}>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06, duration: 0.5 }}>
 
                 <Link
-                to={s.link}
-                className="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 md:py-10 border-b border-white/[0.08] hover:border-accent/30 transition-colors duration-500 px-2">
+                  to={s.link}
+                  className="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 md:py-10 border-b border-white/[0.08] hover:border-accent/30 transition-colors duration-500 px-2">
 
                   <div className="flex items-start md:items-center gap-6 md:gap-10 flex-1">
                     <span className="text-[13px] font-body font-semibold text-accent/50 tracking-wider pt-1 md:pt-0">{s.num}</span>
@@ -245,23 +245,23 @@ export default function IndiaHome() {
               className="grid grid-cols-2 gap-4">
 
               {[
-              { title: "Integrity", desc: "Transparent and ethical operations" },
-              { title: "Excellence", desc: "High-quality through attention to detail" },
-              { title: "Innovation", desc: "Modern tools for smarter solutions" },
-              { title: "Client-First", desc: "Exceeding expectations at every step" }].
-              map((p, i) =>
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + i * 0.08, duration: 0.5 }}
-                className="rounded-2xl bg-white/[0.04] border border-white/[0.08] p-7 hover:border-accent/30 hover:bg-white/[0.06] transition-all duration-500 group">
+                { title: "Integrity", desc: "Transparent and ethical operations" },
+                { title: "Excellence", desc: "High-quality through attention to detail" },
+                { title: "Innovation", desc: "Modern tools for smarter solutions" },
+                { title: "Client-First", desc: "Exceeding expectations at every step" }].
+                map((p, i) =>
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + i * 0.08, duration: 0.5 }}
+                    className="rounded-2xl bg-white/[0.04] border border-white/[0.08] p-7 hover:border-accent/30 hover:bg-white/[0.06] transition-all duration-500 group">
 
-                  <h4 className="font-heading font-semibold text-[15px] mb-2 text-white group-hover:text-accent transition-colors">{p.title}</h4>
-                  <p className="text-[13px] text-white/40 leading-relaxed">{p.desc}</p>
-                </motion.div>
-              )}
+                    <h4 className="font-heading font-semibold text-[15px] mb-2 text-white group-hover:text-accent transition-colors">{p.title}</h4>
+                    <p className="text-[13px] text-white/40 leading-relaxed">{p.desc}</p>
+                  </motion.div>
+                )}
             </motion.div>
           </div>
         </div>

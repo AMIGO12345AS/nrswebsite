@@ -64,32 +64,49 @@ export default function DubaiTeam() {
             </motion.h2>
           </motion.div>
 
-          <div className="grid gap-8 md:grid-cols-3">
-            {team.map((m, i) => (
-              <motion.div
-                key={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                custom={i}
-                className="group relative rounded-3xl border border-border bg-card overflow-hidden hover:border-accent/20 transition-all duration-500"
-              >
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img
-                    src={m.image}
-                    alt={m.name}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div className="p-7">
-                  <h3 className="font-heading font-semibold text-lg">{m.name}</h3>
-                  <p className="text-[13px] text-accent font-medium mb-3">{m.role}</p>
-                  <p className="text-[13px] text-muted-foreground leading-relaxed">{m.bio}</p>
-                </div>
-              </motion.div>
-            ))}
+          <div className="space-y-24 md:space-y-32">
+            {team.map((m, i) => {
+              const isEven = i % 2 === 0;
+              return (
+                <motion.div
+                  key={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                  variants={fadeUp}
+                  className={`flex flex-col md:items-center gap-10 md:gap-20 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                >
+                  {/* Image Side */}
+                  <div className="w-full md:w-5/12 relative group rounded-2xl overflow-hidden shadow-2xl">
+                    <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 mix-blend-overlay transition-opacity duration-700 z-10" />
+                    <div className="aspect-[4/5] overflow-hidden">
+                      <img
+                        src={m.image}
+                        alt={m.name}
+                        className="w-full h-full object-cover object-top scale-100 group-hover:scale-105 transition-transform duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Typography Side */}
+                  <div className="w-full md:w-7/12">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="h-px w-8 bg-accent" />
+                      <span className="text-accent text-[12px] font-semibold tracking-[0.2em] uppercase">{m.role}</span>
+                    </div>
+                    <h3 className="text-4xl md:text-[56px] font-heading font-bold tracking-[-0.02em] leading-[1.1] text-foreground mb-6">
+                      {m.name}
+                    </h3>
+
+                    <div className="space-y-6 text-[17px] leading-[1.8] text-muted-foreground font-light max-w-xl">
+                      <p className="text-[19px] leading-[1.8] text-foreground/80 font-light">
+                        {m.bio}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

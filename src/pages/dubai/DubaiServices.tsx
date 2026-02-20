@@ -57,19 +57,17 @@ export default function DubaiServices() {
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-secondary/40 to-transparent" />
 
         <div className="container relative z-10 max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-[1px] bg-border/40 rounded-3xl overflow-hidden shadow-2xl shadow-black/[0.03]">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             {services.map((s, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="group relative bg-card p-10 md:p-14 hover:bg-accent/[0.02] transition-all duration-700 overflow-hidden"
+                transition={{ delay: i * 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className={`group relative rounded-3xl border border-white/[0.05] bg-card/40 backdrop-blur-xl p-10 md:p-14 hover:bg-white/[0.02] hover:border-white/[0.1] transition-all duration-[800ms] overflow-hidden ${i === 0 || i === 3 ? "md:col-span-7" : "md:col-span-5"
+                  }`}
               >
-                {/* Animated top accent line */}
-                <div className="absolute top-0 left-0 w-0 h-[2px] bg-accent group-hover:w-full transition-all duration-700" />
-
                 <div className="flex items-center justify-between mb-8">
                   <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/[0.07] border border-accent/10 group-hover:bg-accent/[0.12] transition-colors duration-500">
                     <s.icon className="h-5 w-5 text-accent" />
@@ -77,21 +75,21 @@ export default function DubaiServices() {
                   <span className="text-[11px] font-mono text-muted-foreground/30 tracking-[0.3em]">{s.num}</span>
                 </div>
 
-                <h3 className="text-xl md:text-[24px] font-heading font-semibold mb-3 group-hover:text-accent transition-colors duration-500 tracking-[-0.01em]">
+                <h3 className="text-xl md:text-[24px] font-heading font-semibold mb-3 group-hover:text-accent group-hover:tracking-wide transition-all duration-700 tracking-[-0.01em]">
                   {s.title}
                 </h3>
-                <p className="text-[13px] text-muted-foreground/60 leading-relaxed mb-8">{s.desc}</p>
+                <p className="text-[13px] text-muted-foreground/60 leading-relaxed mb-8 max-w-sm">{s.desc}</p>
 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-4">
                   {s.items.map((item, j) => (
                     <li key={j} className="flex items-start gap-3 text-[14px] text-muted-foreground">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent/50 mt-[7px] shrink-0" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent/50 mt-[7px] shrink-0 transform group-hover:scale-125 transition-transform duration-500" />
                       {item}
                     </li>
                   ))}
                 </ul>
 
-                <ArrowUpRight className="h-5 w-5 text-border group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500" />
+                <ArrowUpRight className="absolute bottom-10 right-10 h-6 w-6 text-border opacity-0 group-hover:opacity-100 group-hover:text-accent transform translate-y-4 -translate-x-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)]" />
               </motion.div>
             ))}
           </div>

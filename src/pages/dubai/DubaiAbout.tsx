@@ -62,20 +62,28 @@ export default function DubaiAbout() {
       </section>
 
       {/* Story */}
-      <section className="py-28 bg-background">
-        <div className="container max-w-4xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-12">
-            <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-5">
-              <div className="h-px w-10 bg-accent" />
-              <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">Our Story</span>
+      <section className="py-32 bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-secondary/20 to-transparent pointer-events-none" />
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="lg:col-span-5">
+              <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
+                <div className="h-px w-12 bg-accent" />
+                <span className="text-accent text-[12px] font-semibold tracking-[0.25em] uppercase">Our Story</span>
+              </motion.div>
+              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-[52px] font-heading font-bold tracking-[-0.02em] leading-[1.1] text-foreground">
+                A Decade of Delivering<br />Financial Excellence
+              </motion.h2>
             </motion.div>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[42px] font-heading font-bold tracking-[-0.02em] leading-[1.15] mb-8">
-              A Decade of Delivering<br />Financial Excellence
-            </motion.h2>
-          </motion.div>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-[17px] leading-[1.9] text-muted-foreground">
-            Established in 2017, NRS & Associates is a professionally driven accounting and advisory firm offering comprehensive services in accounting, bookkeeping, internal audit, tax advisory, and ERP implementation. With the trust of over 1,000 clients and a 50+ member expert team, we deliver solutions that are reliable, timely, and practical.
-          </motion.p>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="lg:col-span-7 lg:pt-16">
+              <p className="text-[19px] md:text-[22px] leading-[1.8] text-foreground/80 font-light mb-8">
+                Established in 2017, NRS & Associates is a professionally driven accounting and advisory firm offering comprehensive services in accounting, bookkeeping, internal audit, tax advisory, and ERP implementation.
+              </p>
+              <p className="text-[16px] leading-[1.8] text-muted-foreground">
+                With the trust of over 1,000 clients and a 50+ member expert team, we deliver solutions that are reliable, timely, and practical. Our approach merges traditional financial prudence with forward-thinking technological integration.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -106,29 +114,28 @@ export default function DubaiAbout() {
       </section>
 
       {/* Core Principles */}
-      <section className="py-28 bg-background">
+      <section className="py-32 bg-background relative">
         <div className="container">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-            <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 justify-center mb-4">
-              <div className="h-px w-10 bg-accent" />
-              <span className="text-accent text-[13px] font-medium tracking-[0.2em] uppercase">Foundation</span>
-              <div className="h-px w-10 bg-accent" />
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-20 max-w-2xl">
+            <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
+              <div className="h-px w-12 bg-accent" />
+              <span className="text-accent text-[12px] font-semibold tracking-[0.25em] uppercase">Foundation</span>
             </motion.div>
-            <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[42px] font-heading font-bold tracking-[-0.02em]">
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-[52px] font-heading font-bold tracking-[-0.02em] leading-[1.1]">
               Core Principles
             </motion.h2>
           </motion.div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
+
+          <div className="grid gap-y-12 gap-x-16 sm:grid-cols-2 lg:grid-cols-4">
             {principles.map((p, i) => (
               <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
-                className="group relative text-center p-8 rounded-3xl border border-border bg-card overflow-hidden hover:border-accent/20 transition-all duration-500"
+                className="group relative pl-8 border-l border-border hover:border-accent transition-all duration-500 hover:pl-10"
               >
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                <div className="mx-auto mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 group-hover:bg-accent/15 transition-colors duration-500">
+                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/[0.05] group-hover:bg-accent/10 transition-colors duration-500">
                   <p.icon className="h-5 w-5 text-accent" />
                 </div>
-                <h3 className="font-heading font-semibold text-[15px] mb-2">{p.title}</h3>
-                <p className="text-[13px] text-muted-foreground leading-relaxed">{p.desc}</p>
+                <h3 className="font-heading font-semibold text-xl mb-3 text-foreground tracking-tight">{p.title}</h3>
+                <p className="text-[14px] text-muted-foreground leading-[1.8]">{p.desc}</p>
               </motion.div>
             ))}
           </div>

@@ -42,7 +42,7 @@ export default function DubaiCareers() {
             </motion.h2>
           </motion.div>
 
-          <div className="border-t border-border">
+          <div className="relative border-t border-border">
             {values.map((v, i) => (
               <motion.div
                 key={i}
@@ -51,11 +51,14 @@ export default function DubaiCareers() {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={i}
-                className="group border-b border-border py-12 grid md:grid-cols-[80px_1fr_1.5fr] gap-6 items-start"
+                className="group relative border-b border-border py-10 md:py-16 grid md:grid-cols-[100px_1fr_1.5fr] gap-8 md:gap-16 items-center hover:bg-accent/[0.02] -mx-4 px-4 md:-mx-8 md:px-8 transition-colors duration-700 cursor-default overflow-hidden"
               >
-                <span className="text-[13px] font-body font-semibold text-accent/60 tracking-wider">{v.num}</span>
-                <h3 className="text-xl md:text-2xl font-heading font-semibold tracking-[-0.01em] group-hover:text-accent transition-colors">{v.title}</h3>
-                <p className="text-[15px] text-muted-foreground leading-[1.7]">{v.desc}</p>
+                {/* Hover Accent Line */}
+                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top" />
+
+                <span className="text-[14px] font-mono font-semibold text-accent/50 tracking-[0.2em] transform group-hover:translate-x-4 transition-transform duration-500">{v.num}</span>
+                <h3 className="text-3xl md:text-[40px] font-heading font-bold tracking-[-0.02em] group-hover:text-accent transition-colors duration-500 leading-[1.1]">{v.title}</h3>
+                <p className="text-[16px] text-muted-foreground leading-[1.8] font-light max-w-xl md:ml-auto group-hover:text-foreground/80 transition-colors duration-500">{v.desc}</p>
               </motion.div>
             ))}
           </div>

@@ -51,23 +51,28 @@ export default function IndiaInsights() {
       <section className="py-24 bg-background">
         <div className="container max-w-6xl">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <div className="grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-border">
-              <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
-                <img src={insightsFeatured} alt={featured.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            <div className="group flex flex-col md:flex-row gap-10 md:gap-16 items-center">
+              <div className="w-full md:w-[55%] aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-2xl relative">
+                <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 mix-blend-overlay transition-opacity duration-700 z-10 pointer-events-none" />
+                <img src={insightsFeatured} alt={featured.title} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)]" />
               </div>
-              <div className="p-10 md:p-14 flex flex-col justify-center bg-card">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-[11px] font-semibold tracking-[0.1em] uppercase text-accent">{featured.category}</span>
-                  <span className="text-border">—</span>
-                  <span className="text-[12px] text-muted-foreground">{featured.reading}</span>
+              <div className="w-full md:w-[45%] flex flex-col justify-center">
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-accent">{featured.category}</span>
+                  <div className="h-px w-8 bg-border" />
+                  <span className="text-[12px] text-muted-foreground tracking-widest uppercase">{featured.reading}</span>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-heading font-bold leading-[1.2] tracking-[-0.01em] mb-4">{featured.title}</h2>
-                <p className="text-[15px] text-muted-foreground leading-[1.7] mb-8">{featured.excerpt}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-[13px] text-muted-foreground/60">{featured.date}</span>
-                  <span className="group inline-flex items-center gap-2 text-[13px] font-semibold text-foreground hover:text-accent transition-colors cursor-pointer">
+                <h2 className="text-3xl md:text-[40px] font-heading font-bold leading-[1.15] tracking-[-0.02em] mb-6 group-hover:text-accent transition-colors duration-500">
+                  {featured.title}
+                </h2>
+                <p className="text-[16px] text-muted-foreground leading-[1.8] mb-10 font-light">
+                  {featured.excerpt}
+                </p>
+                <div className="flex items-center justify-between border-t border-border/50 pt-6">
+                  <span className="text-[13px] text-muted-foreground/60 font-mono tracking-widest uppercase">{featured.date}</span>
+                  <span className="inline-flex items-center gap-3 text-[12px] font-bold tracking-[0.2em] uppercase text-foreground hover:text-accent transition-colors cursor-pointer group-hover:tracking-[0.25em] duration-500">
                     Read Article
-                    <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
                   </span>
                 </div>
               </div>
@@ -76,9 +81,10 @@ export default function IndiaInsights() {
         </div>
       </section>
 
-      <section className="pb-28 bg-background">
-        <div className="container max-w-6xl">
-          <div className="border-t border-border">
+      <section className="pb-32 bg-background">
+        <div className="container max-w-5xl">
+          <div className="relative">
+            <div className="absolute -left-6 top-0 bottom-0 w-px bg-gradient-to-b from-border via-border/50 to-transparent hidden md:block" />
             {rest.map((a, i) => (
               <motion.article
                 key={i}
@@ -87,26 +93,34 @@ export default function IndiaInsights() {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={i}
-                className="group border-b border-border py-10 flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer hover:bg-accent/[0.02] px-4 -mx-4 transition-colors"
+                className="group relative border-b border-border/50 py-12 flex flex-col md:flex-row md:items-center justify-between gap-8 cursor-pointer hover:bg-accent/[0.02] -mx-8 px-8 transition-all duration-700"
               >
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-[11px] font-semibold tracking-[0.1em] uppercase text-accent">{a.category}</span>
-                    <span className="text-border">—</span>
-                    <span className="text-[12px] text-muted-foreground">{a.reading}</span>
+                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent scale-y-0 group-hover:scale-y-100 transition-transform duration-[800ms] origin-top opacity-50 pointer-events-none" />
+
+                <div className="flex-1 relative z-10">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-accent">{a.category}</span>
+                    <div className="h-px w-6 bg-border" />
+                    <span className="text-[11px] text-muted-foreground tracking-widest uppercase">{a.reading}</span>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-heading font-semibold group-hover:text-accent transition-colors tracking-[-0.01em]">{a.title}</h3>
-                  <p className="text-[14px] text-muted-foreground mt-2 max-w-xl leading-relaxed hidden md:block">{a.excerpt}</p>
+                  <h3 className="text-2xl md:text-[28px] font-heading font-bold group-hover:text-accent transition-colors duration-500 tracking-[-0.02em] leading-[1.2]">
+                    {a.title}
+                  </h3>
+                  <p className="text-[15px] text-muted-foreground mt-4 max-w-2xl leading-[1.8] font-light hidden md:block">
+                    {a.excerpt}
+                  </p>
                 </div>
-                <div className="flex items-center gap-6 shrink-0">
-                  <span className="text-[13px] text-muted-foreground/50">{a.date}</span>
-                  <ArrowUpRight className="h-5 w-5 text-border group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                <div className="flex flex-row md:flex-col items-center md:items-end gap-4 md:gap-2 shrink-0 relative z-10">
+                  <span className="text-[12px] font-mono tracking-widest uppercase text-muted-foreground/40">{a.date}</span>
+                  <div className="h-12 w-12 rounded-full border border-border flex items-center justify-center group-hover:border-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 mt-2">
+                    <ArrowUpRight className="h-5 w-5 transform group-hover:scale-110 transition-transform duration-500" />
+                  </div>
                 </div>
               </motion.article>
             ))}
           </div>
-          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-[14px] text-muted-foreground/40 mt-12 italic">
-            More perspectives publishing soon.
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-[13px] tracking-widest uppercase text-muted-foreground/30 mt-16 text-center">
+            More perspectives publishing soon
           </motion.p>
         </div>
       </section>

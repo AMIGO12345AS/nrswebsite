@@ -29,7 +29,7 @@ export default function IndiaTeam() {
       </section>
 
       <section className="py-28 bg-background">
-        <div className="container max-w-lg mx-auto">
+        <div className="container max-w-6xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 justify-center mb-4">
               <div className="h-px w-10 bg-accent" />
@@ -41,25 +41,40 @@ export default function IndiaTeam() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={fadeUp}
-            custom={0}
-            className="group relative rounded-3xl border border-border bg-card overflow-hidden hover:border-accent/20 transition-all duration-500"
+            className="flex flex-col md:flex-row md:items-center gap-10 md:gap-20"
           >
-            <div className="absolute top-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-            <div className="aspect-[4/5] overflow-hidden">
-              <img
-                src={teamNizar}
-                alt="CA Muhammed Nizar E"
-                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-              />
+            {/* Image Side */}
+            <div className="w-full md:w-5/12 relative group rounded-2xl overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 mix-blend-overlay transition-opacity duration-700 z-10" />
+              <div className="aspect-[4/5] overflow-hidden">
+                <img
+                  src={teamNizar}
+                  alt="CA Muhammed Nizar E"
+                  className="w-full h-full object-cover object-top scale-100 group-hover:scale-105 transition-transform duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                />
+              </div>
             </div>
-            <div className="p-8 text-center">
-              <h3 className="font-heading font-semibold text-xl">{`CA Muhammed Nizar E`}</h3>
-              <p className="text-[13px] text-accent font-medium mb-4">Partner</p>
-              <p className="text-[14px] text-muted-foreground leading-relaxed">
-                Co-Founder of NRS & Associates, overseeing the firm's Indian operations. He practices with expertise in cross-border financial transactions and plays a key role in strategic growth.
-              </p>
+
+            {/* Typography Side */}
+            <div className="w-full md:w-7/12">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px w-8 bg-accent" />
+                <span className="text-accent text-[12px] font-semibold tracking-[0.2em] uppercase">Partner</span>
+              </div>
+              <h3 className="text-4xl md:text-[56px] font-heading font-bold tracking-[-0.02em] leading-[1.1] text-foreground mb-6">
+                CA Muhammed Nizar E
+              </h3>
+
+              <div className="space-y-6 text-[17px] leading-[1.8] text-muted-foreground font-light max-w-xl">
+                <p className="text-[19px] leading-[1.8] text-foreground/80 font-light mb-8">
+                  Co-Founder of NRS & Associates, overseeing the firm's Indian operations. He practices with expertise in cross-border financial transactions and plays a key role in strategic growth.
+                </p>
+                <p>
+                  With a commitment to excellence and a deep understanding of complex regulatory environments across multiple jurisdictions, CA Muhammed Nizar E ensures that every client receives tailored, forward-thinking solutions that drive lasting value.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>

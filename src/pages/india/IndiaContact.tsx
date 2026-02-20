@@ -1,6 +1,6 @@
-import { Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, Phone, ArrowUpRight, Send } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { fadeUp } from "@/lib/animations";
 import contactHero from "@/assets/contact-hero.jpg";
 
@@ -8,6 +8,20 @@ export default function IndiaContact() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const cinematicOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
+
+  const [formState, setFormState] = useState({ name: "", email: "", phone: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setFormState({ name: "", email: "", phone: "", message: "" });
+      alert("Thank you for your message. We will get back to you shortly.");
+    }, 1500);
+  };
 
   return (
     <>
@@ -28,34 +42,98 @@ export default function IndiaContact() {
         </div>
       </section>
 
-      <section className="py-28 bg-background">
-        <div className="container max-w-lg mx-auto">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}
-            className="rounded-3xl border border-border bg-card p-10"
-          >
-            <h3 className="font-heading font-semibold text-xl mb-8">India Office</h3>
-            <div className="space-y-6">
-              <a href="mailto:info@nrsfysner.com" className="group flex items-center gap-4 text-[14px] text-muted-foreground hover:text-accent transition-colors">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/10 group-hover:bg-accent/15 transition-colors duration-300 shrink-0">
-                  <Mail className="h-4 w-4 text-accent" />
+      <section className="py-28 bg-background relative overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-accent/[0.03] blur-[120px] rounded-full pointer-events-none" />
+
+        <div className="container max-w-6xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+
+            {/* Contact Information */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex flex-col justify-center">
+              <span className="text-accent text-[13px] font-medium tracking-[0.15em] uppercase mb-6 block">Get in Touch</span>
+              <h2 className="text-4xl md:text-[52px] font-heading font-bold tracking-[-0.02em] leading-[1.1] mb-8">
+                Global Expertise,<br />Local Presence.
+              </h2>
+              <p className="text-[17px] text-muted-foreground leading-[1.8] font-light mb-12 max-w-md">
+                Whether you're looking to expand operations, ensure compliance, or seek strategic advisory, our team is ready to assist you.
+              </p>
+
+              <div className="space-y-10 border-l border-border pl-8">
+                <div className="flex items-start gap-6 group">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/[0.05] border border-accent/10 group-hover:border-accent/30 group-hover:bg-accent/10 transition-all duration-500 shrink-0 shadow-sm">
+                    <MapPin className="h-5 w-5 text-accent" />
+                  </div>
+                  <div>
+                    <div className="text-[12px] font-semibold tracking-widest uppercase text-muted-foreground/60 mb-2">India Headquarters</div>
+                    <p className="text-[16px] text-foreground leading-[1.7] font-medium">
+                      Level 4, Financial District,<br />
+                      Mumbai, Maharashtra 400001
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-[11px] text-muted-foreground/60 uppercase tracking-wider mb-0.5">Email</div>
-                  <div className="font-medium">info@nrsfysner.com</div>
+
+                <div className="flex items-start gap-6 group">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/[0.05] border border-accent/10 group-hover:border-accent/30 group-hover:bg-accent/10 transition-all duration-500 shrink-0 shadow-sm">
+                    <Phone className="h-5 w-5 text-accent" />
+                  </div>
+                  <div>
+                    <div className="text-[12px] font-semibold tracking-widest uppercase text-muted-foreground/60 mb-2">Phone</div>
+                    <a href="tel:+912212345678" className="text-[16px] text-foreground leading-[1.7] font-medium hover:text-accent transition-colors">
+                      +91 22 1234 5678
+                    </a>
+                  </div>
                 </div>
-                <ArrowUpRight className="h-4 w-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-              <div className="flex items-start gap-4 text-[14px] text-muted-foreground">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/10 shrink-0">
-                  <MapPin className="h-4 w-4 text-accent" />
-                </div>
-                <div>
-                  <div className="text-[11px] text-muted-foreground/60 uppercase tracking-wider mb-0.5">Address</div>
-                  <p className="font-medium">India Office<br />(Address & phone details coming soon)</p>
+
+                <div className="flex items-start gap-6 group">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/[0.05] border border-accent/10 group-hover:border-accent/30 group-hover:bg-accent/10 transition-all duration-500 shrink-0 shadow-sm">
+                    <Mail className="h-5 w-5 text-accent" />
+                  </div>
+                  <div>
+                    <div className="text-[12px] font-semibold tracking-widest uppercase text-muted-foreground/60 mb-2">Email</div>
+                    <a href="mailto:info@nrsfysner.com" className="group/link inline-flex items-center gap-2 text-[16px] text-foreground leading-[1.7] font-medium hover:text-accent transition-colors">
+                      info@nrsfysner.com
+                      <ArrowUpRight className="h-4 w-4 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* Contact Form */}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-border/50 to-transparent rounded-[2.5rem] -m-px" />
+              <div className="bg-card rounded-[2.5rem] p-10 md:p-14 relative z-10 shadow-2xl">
+                <h3 className="font-heading font-semibold text-2xl mb-8">Send a message</h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Full Name</label>
+                    <input required type="text" id="name" value={formState.name} onChange={e => setFormState({ ...formState, name: e.target.value })} className="w-full bg-background/50 border border-border/60 hover:border-border rounded-2xl px-5 py-4 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all placeholder:text-muted-foreground/30" placeholder="John Doe" />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Email Address</label>
+                      <input required type="email" id="email" value={formState.email} onChange={e => setFormState({ ...formState, email: e.target.value })} className="w-full bg-background/50 border border-border/60 hover:border-border rounded-2xl px-5 py-4 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all placeholder:text-muted-foreground/30" placeholder="john@company.com" />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="phone" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Phone Number</label>
+                      <input type="tel" id="phone" value={formState.phone} onChange={e => setFormState({ ...formState, phone: e.target.value })} className="w-full bg-background/50 border border-border/60 hover:border-border rounded-2xl px-5 py-4 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all placeholder:text-muted-foreground/30" placeholder="+91 98765 43210" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Your Message</label>
+                    <textarea required id="message" rows={4} value={formState.message} onChange={e => setFormState({ ...formState, message: e.target.value })} className="w-full bg-background/50 border border-border/60 hover:border-border rounded-2xl px-5 py-4 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all placeholder:text-muted-foreground/30 resize-none" placeholder="How can we help you?" />
+                  </div>
+
+                  <button disabled={isSubmitting} type="submit" className="w-full group inline-flex items-center justify-center gap-3 bg-accent text-white px-8 py-5 rounded-2xl text-[14px] font-semibold hover:bg-accent/90 transition-all duration-500 disabled:opacity-70 shadow-lg shadow-accent/20 mt-4">
+                    {isSubmitting ? "Sending..." : "Submit Inquiry"}
+                    {!isSubmitting && <Send className="h-4 w-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />}
+                  </button>
+                </form>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </>
