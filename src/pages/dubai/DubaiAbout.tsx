@@ -88,27 +88,50 @@ export default function DubaiAbout() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="relative py-28 bg-foreground overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-accent/[0.04] blur-[120px] rounded-full -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/[0.03] blur-[100px] rounded-full" />
-        </div>
-        <div className="container max-w-5xl relative z-10">
-          <div className="grid gap-6 md:grid-cols-2">
-            {[
-              { icon: Eye, title: "Vision", text: "To be the trusted partner for businesses across the globe, helping them navigate challenges, seize opportunities, and grow with confidence." },
-              { icon: Target, title: "Mission", text: "To empower businesses globally by providing trusted financial, advisory, and technology solutions while building a team of skilled professionals who contribute lasting value." },
-            ].map((item, i) => (
-              <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
-                className="group rounded-3xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm p-10 hover:border-accent/20 transition-all duration-500"
-              >
-                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 group-hover:bg-accent/20 transition-colors duration-500">
-                  <item.icon className="h-5 w-5 text-accent" />
+      <section className="relative py-32 bg-background overflow-hidden border-b border-border">
+        {/* Subtle background element */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-accent/[0.03] to-transparent pointer-events-none" />
+
+        <div className="container relative z-10 max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
+            {/* Vision */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="relative"
+            >
+              <div className="flex items-center gap-4 mb-8">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent/10">
+                  <Eye className="w-5 h-5 text-accent" />
                 </div>
-                <h3 className="font-heading font-semibold text-xl text-white mb-4">{item.title}</h3>
-                <p className="text-[14px] text-white/60 leading-relaxed">{item.text}</p>
-              </motion.div>
-            ))}
+                <h3 className="text-xl font-heading font-semibold tracking-[0.1em] text-foreground uppercase">Vision</h3>
+              </div>
+              <p className="text-[28px] md:text-[36px] font-heading font-light leading-[1.3] tracking-[-0.02em] text-foreground">
+                To be the <span className="text-accent font-medium">trusted partner</span> for businesses across the globe, helping them navigate challenges, seize opportunities, and <span className="font-medium relative inline-block">grow with confidence.<div className="absolute bottom-2 left-0 w-full h-2 bg-accent/20 -z-10 transform -rotate-1 rounded-sm"></div></span>
+              </p>
+            </motion.div>
+
+            {/* Mission */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="relative"
+            >
+              <div className="hidden md:block absolute left-[-2rem] lg:left-[-3rem] top-10 bottom-10 w-[1px] bg-gradient-to-b from-transparent via-border to-transparent" />
+              <div className="flex items-center gap-4 mb-8">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/5">
+                  <Target className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="text-xl font-heading font-semibold tracking-[0.1em] text-foreground uppercase">Mission</h3>
+              </div>
+              <p className="text-[28px] md:text-[36px] font-heading font-light leading-[1.3] tracking-[-0.02em] text-foreground">
+                To empower businesses globally by providing trusted <span className="font-medium text-foreground">financial, advisory, and technology solutions</span> while building a team that contributes <span className="font-medium italic text-primary/80">lasting value.</span>
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>

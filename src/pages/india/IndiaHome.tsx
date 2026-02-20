@@ -142,64 +142,91 @@ export default function IndiaHome() {
       </section>
 
       {/* Services */}
-      <section className="relative py-32 bg-foreground overflow-hidden">
+      <section className="relative py-40 bg-foreground overflow-hidden">
+        {/* Dynamic Background Effects */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-accent/[0.03] blur-[150px] rounded-full" />
+          <div className="absolute top-0 right-1/4 w-[800px] h-[800px] bg-accent/[0.02] blur-[150px] rounded-full" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/[0.02] blur-[150px] rounded-full" />
         </div>
+
         <div className="container relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-20">
-
+            className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-24 max-w-7xl mx-auto"
+          >
             <div>
-              <motion.span variants={fadeUp} custom={0} className="text-accent text-[13px] font-medium tracking-[0.15em] uppercase mb-5 block">Services</motion.span>
-              <motion.h2 variants={fadeUp} custom={1} className="text-3xl md:text-[52px] font-heading font-bold leading-[1.08] tracking-[-0.02em] text-white">
-                What we do
+              <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
+                <div className="h-px w-12 bg-accent/60" />
+                <span className="text-accent text-[12px] font-semibold tracking-[0.25em] uppercase">Expertise</span>
+              </motion.div>
+              <motion.h2 variants={fadeUp} custom={1} className="text-4xl md:text-[64px] font-heading font-bold leading-[1.1] tracking-[-0.02em] text-white">
+                What we do.
               </motion.h2>
             </div>
             <motion.div variants={fadeUp} custom={2}>
               <Link
                 to="/india/services"
-                className="group inline-flex items-center gap-2.5 text-[14px] font-semibold text-white/40 hover:text-accent transition-colors">
-
+                className="group inline-flex items-center gap-3 text-[14px] font-semibold text-white/50 hover:text-white transition-colors duration-300"
+              >
                 View all services
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1.5 transition-transform" />
+                <span className="relative flex items-center justify-center w-10 h-10 rounded-full border border-white/10 group-hover:border-accent/40 group-hover:bg-accent/10 transition-all duration-300">
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:text-accent transition-all duration-300" />
+                </span>
               </Link>
             </motion.div>
           </motion.div>
 
-          <div className="border-t border-white/[0.08]">
-            {services.map((s, i) =>
+          {/* Premium Massive Typography List */}
+          <div className="max-w-7xl mx-auto border-t border-white/[0.06]">
+            {services.map((s, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.06, duration: 0.5 }}>
+                transition={{ delay: i * 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="group relative border-b border-white/[0.06] hover:border-accent/30 transition-colors duration-700"
+              >
+                {/* Massive Number Background */}
+                <span className="absolute -left-4 top-1/2 -translate-y-1/2 text-[120px] md:text-[180px] font-heading font-black text-white/[0.02] group-hover:text-accent/[0.03] transition-colors duration-700 pointer-events-none select-none z-0">
+                  {s.num}
+                </span>
 
                 <Link
                   to={s.link}
-                  className="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 md:py-10 border-b border-white/[0.08] hover:border-accent/30 transition-colors duration-500 px-2">
+                  className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6 py-12 md:py-16 px-4 md:px-8"
+                >
+                  <div className="flex-1 flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 w-full">
+                    {/* Small numbering */}
+                    <span className="text-[13px] font-mono font-medium text-accent/60 tracking-[0.2em] transform group-hover:-translate-y-2 transition-transform duration-500 ease-out">{s.num}</span>
 
-                  <div className="flex items-start md:items-center gap-6 md:gap-10 flex-1">
-                    <span className="text-[13px] font-body font-semibold text-accent/50 tracking-wider pt-1 md:pt-0">{s.num}</span>
                     <div className="flex-1">
-                      <h3 className="text-xl md:text-[28px] font-heading font-semibold text-white group-hover:text-accent transition-colors duration-400 tracking-[-0.01em] leading-tight">
+                      <h3 className="text-3xl md:text-[56px] font-heading font-bold text-white/80 group-hover:text-white transition-all duration-700 tracking-[-0.02em] leading-[1.1]">
                         {s.title}
                       </h3>
-                      <p className="text-[14px] text-white/35 leading-relaxed mt-2 max-w-lg">{s.desc}</p>
+
+                      {/* Description - Expands/Reveals on Hover */}
+                      <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]">
+                        <div className="overflow-hidden">
+                          <p className="text-[16px] md:text-[18px] text-white/40 leading-relaxed max-w-2xl font-light transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-100 ease-out mt-4 pb-2">
+                            {s.desc}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="shrink-0 pl-16 md:pl-0">
-                    <div className="w-10 h-10 rounded-full border border-white/[0.1] group-hover:border-accent/40 group-hover:bg-accent/10 flex items-center justify-center transition-all duration-400">
-                      <ArrowUpRight className="h-4 w-4 text-white/25 group-hover:text-accent transition-colors duration-400" />
+
+                  {/* Hover Arrow */}
+                  <div className="shrink-0 pt-4 md:pt-0 pointer-events-none">
+                    <div className="w-14 h-14 rounded-full border border-white/10 group-hover:border-accent/50 group-hover:bg-accent group-hover:scale-110 flex items-center justify-center transition-all duration-500 ease-out">
+                      <ArrowUpRight className="h-6 w-6 text-white/30 group-hover:text-white transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500 ease-out" />
                     </div>
                   </div>
                 </Link>
               </motion.div>
-            )}
+            ))}
           </div>
         </div>
       </section>
