@@ -142,7 +142,7 @@ export default function DubaiHome() {
       </section>
 
       {/* Services */}
-      <section className="relative py-40 bg-foreground overflow-hidden">
+      <section className="relative py-20 md:py-40 bg-foreground overflow-hidden">
         {/* Dynamic Background Effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-1/4 w-[800px] h-[800px] bg-accent/[0.02] blur-[150px] rounded-full" />
@@ -154,7 +154,7 @@ export default function DubaiHome() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-24 max-w-7xl mx-auto"
+            className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 md:mb-24 max-w-7xl mx-auto"
           >
             <div>
               <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
@@ -196,7 +196,7 @@ export default function DubaiHome() {
 
                 <Link
                   to={s.link}
-                  className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6 py-12 md:py-16 px-4 md:px-8"
+                  className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 md:py-16 px-2 md:px-8"
                 >
                   <div className="flex-1 flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 w-full">
                     {/* Small numbering */}
@@ -232,12 +232,12 @@ export default function DubaiHome() {
       </section>
 
       {/* About teaser */}
-      <section className="relative py-32 bg-foreground overflow-hidden">
+      <section className="relative py-16 md:py-32 bg-foreground overflow-hidden">
         {/* Cinematic ambient glow */}
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/[0.07] rounded-full blur-[120px]" />
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px]" />
         <div className="container relative z-10">
-          <div className="grid md:grid-cols-2 gap-20 items-center">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}

@@ -55,7 +55,7 @@ export default function DubaiTeam() {
         </div>
       </section>
 
-      <section className="py-28 bg-background">
+      <section className="py-16 md:py-28 bg-background">
         <div className="container max-w-5xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-16">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-5">
@@ -100,7 +100,7 @@ export default function DubaiTeam() {
                     <div className="flex items-center gap-3 mb-5">
                       <span className="text-accent text-[12px] font-semibold tracking-[0.2em] uppercase">{m.role}</span>
                     </div>
-                    <h3 className="text-4xl md:text-[52px] font-heading font-bold tracking-[-0.02em] leading-[1.1] text-foreground mb-6">
+                    <h3 className="text-3xl md:text-[52px] font-heading font-bold tracking-[-0.02em] leading-[1.1] text-foreground mb-6">
                       {m.name}
                     </h3>
 

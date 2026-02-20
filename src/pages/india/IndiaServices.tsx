@@ -37,7 +37,7 @@ export default function IndiaServices() {
   return (
     <>
       {/* Hero header */}
-      <section className="relative bg-foreground pt-44 pb-32 overflow-hidden">
+      <section className="relative bg-foreground pt-32 md:pt-44 pb-16 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_120%,hsl(var(--accent)/0.08),transparent_70%)]" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
         <div className="container relative z-10 max-w-5xl">
@@ -61,7 +61,7 @@ export default function IndiaServices() {
       </section>
 
       {/* Services grid */}
-      <section className="relative py-28 bg-background overflow-hidden">
+      <section className="relative py-12 md:py-28 bg-background overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
         <div className="container relative z-10 max-w-7xl mx-auto">
@@ -76,7 +76,7 @@ export default function IndiaServices() {
                 className={`group relative rounded-2xl overflow-hidden ${
                   i === 0 || i === 3 ? "md:col-span-7" : "md:col-span-5"
                 }`}
-                style={{ minHeight: "420px" }}
+                style={{ minHeight: "380px" }}
               >
                 {/* Background image */}
                 <img
@@ -92,7 +92,7 @@ export default function IndiaServices() {
                 <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/10 transition-colors duration-700 mix-blend-overlay" />
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col h-full justify-between p-10 md:p-12" style={{ minHeight: "420px" }}>
+                <div className="relative z-10 flex flex-col h-full justify-between p-6 md:p-12" style={{ minHeight: "380px" }}>
                   {/* Top row */}
                   <div className="flex items-center justify-between">
                     <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 border border-white/20 backdrop-blur-sm group-hover:bg-accent/30 group-hover:border-accent/40 transition-all duration-500">

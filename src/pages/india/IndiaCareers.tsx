@@ -49,7 +49,7 @@ export default function IndiaCareers() {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 custom={i}
-                className="group relative border-b border-border py-10 md:py-16 grid md:grid-cols-[100px_1fr_1.5fr] gap-8 md:gap-16 items-center hover:bg-accent/[0.02] -mx-4 px-4 md:-mx-8 md:px-8 transition-colors duration-700 cursor-default overflow-hidden"
+                className="group relative border-b border-border py-8 md:py-16 grid md:grid-cols-[100px_1fr_1.5fr] gap-4 md:gap-16 items-start md:items-center hover:bg-accent/[0.02] -mx-4 px-4 md:-mx-8 md:px-8 transition-colors duration-700 cursor-default overflow-hidden"
               >
                 {/* Hover Accent Line */}
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top" />

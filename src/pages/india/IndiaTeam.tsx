@@ -28,7 +28,7 @@ export default function IndiaTeam() {
         </div>
       </section>
 
-      <section className="py-28 bg-background">
+      <section className="py-16 md:py-28 bg-background">
         <div className="container max-w-6xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 justify-center mb-4">
@@ -66,7 +66,7 @@ export default function IndiaTeam() {
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-accent text-[12px] font-semibold tracking-[0.2em] uppercase">Partner</span>
               </div>
-              <h3 className="text-4xl md:text-[52px] font-heading font-bold tracking-[-0.02em] leading-[1.1] text-foreground mb-6">
+              <h3 className="text-3xl md:text-[52px] font-heading font-bold tracking-[-0.02em] leading-[1.1] text-foreground mb-6">
                 CA Muhammed Nizar E
               </h3>
 
