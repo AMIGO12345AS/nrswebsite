@@ -29,7 +29,7 @@ export default function IndiaAbout() {
         <img src={aboutHero} alt="Modern boardroom" className="absolute inset-0 w-full h-full object-cover object-center" />
         <motion.div style={{ opacity: cinematicOpacity }} className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-transparent" />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 70% 50% at 20% 90%, hsl(var(--accent) / 0.12), transparent)" }} />
-        <div className="relative z-10 container pb-20">
+        <div className="relative z-10 container pb-10 md:pb-20">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             <div className="flex items-center gap-3 mb-5">
               <div className="h-px w-10 bg-accent" />
@@ -96,7 +96,7 @@ export default function IndiaAbout() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="relative p-8 md:p-16 border-b md:border-b-0 md:border-r border-border"
             >
-              <div className="flex items-center gap-3 mb-10">
+              <div className="flex items-center gap-3 mb-6 md:mb-10">
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-accent/10">
                   <Eye className="w-4 h-4 text-accent" />
                 </div>
@@ -115,7 +115,7 @@ export default function IndiaAbout() {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="relative p-8 md:p-16 bg-secondary/30"
             >
-              <div className="flex items-center gap-3 mb-10">
+              <div className="flex items-center gap-3 mb-6 md:mb-10">
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-primary/10">
                   <Target className="w-4 h-4 text-primary" />
                 </div>

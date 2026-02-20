@@ -29,7 +29,7 @@ export default function DubaiContact() {
         <img src={contactHero} alt="Office reception" className="absolute inset-0 w-full h-full object-cover object-center" />
         <motion.div style={{ opacity: cinematicOpacity }} className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-transparent" />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 70% 50% at 20% 90%, hsl(var(--accent) / 0.12), transparent)" }} />
-        <div className="relative z-10 container pb-20">
+        <div className="relative z-10 container pb-10 md:pb-20">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             <div className="flex items-center gap-3 mb-5">
               <div className="h-px w-10 bg-accent" />
@@ -54,7 +54,7 @@ export default function DubaiContact() {
               <h2 className="text-4xl md:text-[52px] font-heading font-bold tracking-[-0.02em] leading-[1.1] mb-8">
                 Global Expertise,<br />Local Presence.
               </h2>
-              <p className="text-[17px] text-muted-foreground leading-[1.8] font-light mb-12 max-w-md">
+              <p className="text-[17px] text-muted-foreground leading-[1.8] font-light mb-8 md:mb-12 max-w-md">
                 Whether you're looking to expand operations, ensure compliance, or seek strategic advisory, our team is ready to assist you.
               </p>
 
