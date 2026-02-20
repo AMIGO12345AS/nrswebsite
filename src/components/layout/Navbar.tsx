@@ -111,8 +111,18 @@ export default function Navbar({ region }: NavbarProps) {
           })}
         </div>
 
-        {/* Right section: Region switcher */}
+        {/* Right section: Contact CTA + Region switcher */}
         <div className="hidden lg:flex items-center gap-3">
+          <Link
+            to={`/${region}/contact`}
+            className={cn(
+              "px-4 py-2 rounded-full text-[13px] font-semibold transition-all duration-300 border",
+              "bg-accent/10 border-accent/20 text-accent hover:bg-accent hover:text-white hover:border-accent"
+            )}
+          >
+            Get in Touch
+          </Link>
+
           <div ref={regionRef} className="relative">
             <button
               onClick={() => setRegionOpen(!regionOpen)}

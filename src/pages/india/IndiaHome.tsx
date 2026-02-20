@@ -244,8 +244,12 @@ export default function IndiaHome() {
               transition={{ duration: 0.7 }}>
 
               <div className="flex items-center gap-3 mb-5">
-                <div className="h-px w-12 bg-[#49b64c]" />
-                <span className="text-[12px] font-semibold tracking-[0.25em] uppercase text-[#49b64c]">About</span>
+                <div className="h-px w-12 bg-accent" />
+                <span className="text-accent text-[12px] font-semibold tracking-[0.25em] uppercase">About</span>
+              </div>
+              <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-3 py-1 mb-6">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                <span className="text-accent text-[11px] font-semibold tracking-[0.15em] uppercase">Est. 2017</span>
               </div>
               <h2 className="text-3xl md:text-[42px] font-heading font-bold leading-[1.1] tracking-[-0.02em] mb-7 text-white">
                 Driven by expertise,
