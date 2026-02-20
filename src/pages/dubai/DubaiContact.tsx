@@ -42,7 +42,7 @@ export default function DubaiContact() {
         </div>
       </section>
 
-      <section className="py-28 bg-background relative overflow-hidden">
+      <section className="py-16 md:py-28 bg-background relative overflow-hidden">
         <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-accent/[0.03] blur-[120px] rounded-full pointer-events-none" />
 
         <div className="container max-w-6xl mx-auto relative z-10">
@@ -58,8 +58,8 @@ export default function DubaiContact() {
                 Whether you're looking to expand operations, ensure compliance, or seek strategic advisory, our team is ready to assist you.
               </p>
 
-              <div className="space-y-10 border-l border-border pl-8">
-                <div className="flex items-start gap-6 group">
+              <div className="space-y-8 border-l border-border pl-5 md:pl-8">
+                <div className="flex items-start gap-4 group">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/[0.05] border border-accent/10 group-hover:border-accent/30 group-hover:bg-accent/10 transition-all duration-500 shrink-0 shadow-sm">
                     <MapPin className="h-5 w-5 text-accent" />
                   </div>
@@ -73,7 +73,7 @@ export default function DubaiContact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-6 group">
+                <div className="flex items-start gap-4 group">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/[0.05] border border-accent/10 group-hover:border-accent/30 group-hover:bg-accent/10 transition-all duration-500 shrink-0 shadow-sm">
                     <Phone className="h-5 w-5 text-accent" />
                   </div>
@@ -85,7 +85,7 @@ export default function DubaiContact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-6 group">
+                <div className="flex items-start gap-4 group">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/[0.05] border border-accent/10 group-hover:border-accent/30 group-hover:bg-accent/10 transition-all duration-500 shrink-0 shadow-sm">
                     <Mail className="h-5 w-5 text-accent" />
                   </div>
@@ -103,7 +103,7 @@ export default function DubaiContact() {
             {/* Contact Form */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-border/50 to-transparent rounded-3xl -m-px" />
-              <div className="bg-card rounded-3xl p-10 md:p-14 relative z-10 shadow-xl border border-border/50">
+              <div className="bg-card rounded-3xl p-7 md:p-14 relative z-10 shadow-xl border border-border/50">
                 <AnimatePresence mode="wait">
                   {submitted ? (
                     <motion.div

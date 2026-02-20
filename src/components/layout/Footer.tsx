@@ -27,9 +27,9 @@ export default function Footer({ region }: FooterProps) {
 
       {/* Grid */}
       <div className="container py-16">
-        <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 md:gap-12 grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr]">
           {/* Brand */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <div className="flex items-baseline gap-1.5 mb-5">
               <span className="text-2xl font-heading font-bold text-white">NRS</span>
               <span className="text-[10px] font-body font-medium tracking-[0.15em] uppercase text-white/25">& Associates</span>

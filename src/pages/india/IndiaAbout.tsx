@@ -58,7 +58,7 @@ export default function IndiaAbout() {
         </div>
       </section>
 
-      <section className="py-32 bg-background relative overflow-hidden">
+      <section className="py-16 md:py-32 bg-background relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-secondary/20 to-transparent pointer-events-none" />
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
@@ -83,7 +83,7 @@ export default function IndiaAbout() {
         </div>
       </section>
 
-      <section className="relative py-32 bg-background overflow-hidden">
+      <section className="relative py-16 md:py-32 bg-background overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-accent/[0.03] to-transparent pointer-events-none" />
 
         <div className="container relative z-10 max-w-6xl">
@@ -94,7 +94,7 @@ export default function IndiaAbout() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="relative p-12 md:p-16 border-b md:border-b-0 md:border-r border-border"
+              className="relative p-8 md:p-16 border-b md:border-b-0 md:border-r border-border"
             >
               <div className="flex items-center gap-3 mb-10">
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-accent/10">
@@ -102,7 +102,7 @@ export default function IndiaAbout() {
                 </div>
                 <span className="text-[11px] font-semibold tracking-[0.25em] text-muted-foreground uppercase">Vision</span>
               </div>
-              <p className="text-[26px] md:text-[32px] font-heading font-light leading-[1.4] tracking-[-0.02em] text-foreground">
+              <p className="text-[20px] md:text-[32px] font-heading font-light leading-[1.4] tracking-[-0.02em] text-foreground">
                 To be the <span className="text-accent font-semibold">trusted partner</span> for businesses across the globe, helping them navigate challenges, seize opportunities, and grow with confidence.
               </p>
             </motion.div>
@@ -113,7 +113,7 @@ export default function IndiaAbout() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="relative p-12 md:p-16 bg-secondary/30"
+              className="relative p-8 md:p-16 bg-secondary/30"
             >
               <div className="flex items-center gap-3 mb-10">
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-primary/10">
@@ -121,7 +121,7 @@ export default function IndiaAbout() {
                 </div>
                 <span className="text-[11px] font-semibold tracking-[0.25em] text-muted-foreground uppercase">Mission</span>
               </div>
-              <p className="text-[26px] md:text-[32px] font-heading font-light leading-[1.4] tracking-[-0.02em] text-foreground">
+              <p className="text-[20px] md:text-[32px] font-heading font-light leading-[1.4] tracking-[-0.02em] text-foreground">
                 To empower businesses globally with trusted <span className="font-semibold text-foreground">financial, advisory, and technology solutions</span> that create lasting value.
               </p>
             </motion.div>
@@ -129,7 +129,7 @@ export default function IndiaAbout() {
         </div>
       </section>
 
-      <section className="py-32 bg-background relative">
+      <section className="py-16 md:py-32 bg-background relative">
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-20 max-w-2xl">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
