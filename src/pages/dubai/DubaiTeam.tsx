@@ -11,20 +11,23 @@ const team = [
   {
     name: "CA Saleel Eranchikkal",
     role: "Managing Partner",
-    bio: "FTA-Registered Tax Agent specializing in UAE VAT, Corporate Tax, and Transfer Pricing.",
+    bio: "FTA-Registered Tax Agent with deep expertise in UAE VAT, Corporate Tax, and Transfer Pricing. A founding force behind NRS & Associates, driving the firm's tax practice with precision and regulatory authority.",
     image: teamSaleel,
+    linkedin: "#",
   },
   {
     name: "CA Rashid M. Basheer",
     role: "Managing Partner",
-    bio: "Former General Manager at Lulu Retail PLC; expert in Financial Governance, Internal Audit, and IPOs.",
+    bio: "Former General Manager at Lulu Retail PLC with a distinguished career spanning Financial Governance, Internal Audit, and IPO advisory. Brings institutional-grade rigor to every engagement.",
     image: teamRashid,
+    linkedin: "#",
   },
   {
     name: "Imran Rashid",
-    role: "Director - Corporate Services",
-    bio: "16+ years experience in private banking and wealth management, advising HNIs and corporates.",
+    role: "Director — Corporate Services",
+    bio: "16+ years in private banking and wealth management, advising high-net-worth individuals and corporates. Leads client relationships and corporate structuring with a client-first philosophy.",
     image: teamImran,
+    linkedin: "#",
   },
 ];
 
@@ -90,19 +93,32 @@ export default function DubaiTeam() {
 
                   {/* Typography Side */}
                   <div className="w-full md:w-7/12">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="h-px w-8 bg-accent" />
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-[11px] font-mono text-accent/60 tracking-[0.2em]">0{i + 1}</span>
+                      <div className="h-px w-8 bg-accent/40" />
+                    </div>
+                    <div className="flex items-center gap-3 mb-5">
                       <span className="text-accent text-[12px] font-semibold tracking-[0.2em] uppercase">{m.role}</span>
                     </div>
-                    <h3 className="text-4xl md:text-[56px] font-heading font-bold tracking-[-0.02em] leading-[1.1] text-foreground mb-6">
+                    <h3 className="text-4xl md:text-[52px] font-heading font-bold tracking-[-0.02em] leading-[1.1] text-foreground mb-6">
                       {m.name}
                     </h3>
 
-                    <div className="space-y-6 text-[17px] leading-[1.8] text-muted-foreground font-light max-w-xl">
-                      <p className="text-[19px] leading-[1.8] text-foreground/80 font-light">
-                        {m.bio}
-                      </p>
-                    </div>
+                    <p className="text-[17px] leading-[1.85] text-muted-foreground font-light max-w-xl mb-8">
+                      {m.bio}
+                    </p>
+
+                    <a
+                      href={m.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2.5 text-[13px] font-semibold text-muted-foreground hover:text-accent transition-colors duration-300 group"
+                    >
+                      <div className="w-8 h-8 rounded-full border border-border group-hover:border-accent/40 group-hover:bg-accent/5 flex items-center justify-center transition-all duration-300">
+                        <Linkedin className="h-3.5 w-3.5" />
+                      </div>
+                      LinkedIn Profile
+                    </a>
                   </div>
                 </motion.div>
               );

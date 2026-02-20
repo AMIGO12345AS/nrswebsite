@@ -88,28 +88,27 @@ export default function DubaiAbout() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="relative py-32 bg-background overflow-hidden border-b border-border">
-        {/* Subtle background element */}
+      <section className="relative py-32 bg-background overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-accent/[0.03] to-transparent pointer-events-none" />
 
         <div className="container relative z-10 max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
+          <div className="grid md:grid-cols-2 gap-0 md:gap-0 border border-border rounded-3xl overflow-hidden">
             {/* Vision */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="relative"
+              className="relative p-12 md:p-16 border-b md:border-b-0 md:border-r border-border"
             >
-              <div className="flex items-center gap-4 mb-8">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent/10">
-                  <Eye className="w-5 h-5 text-accent" />
+              <div className="flex items-center gap-3 mb-10">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-accent/10">
+                  <Eye className="w-4 h-4 text-accent" />
                 </div>
-                <h3 className="text-xl font-heading font-semibold tracking-[0.1em] text-foreground uppercase">Vision</h3>
+                <span className="text-[11px] font-semibold tracking-[0.25em] text-muted-foreground uppercase">Vision</span>
               </div>
-              <p className="text-[28px] md:text-[36px] font-heading font-light leading-[1.3] tracking-[-0.02em] text-foreground">
-                To be the <span className="text-accent font-medium">trusted partner</span> for businesses across the globe, helping them navigate challenges, seize opportunities, and <span className="font-medium relative inline-block">grow with confidence.<div className="absolute bottom-2 left-0 w-full h-2 bg-accent/20 -z-10 transform -rotate-1 rounded-sm"></div></span>
+              <p className="text-[26px] md:text-[32px] font-heading font-light leading-[1.4] tracking-[-0.02em] text-foreground">
+                To be the <span className="text-accent font-semibold">trusted partner</span> for businesses across the globe, helping them navigate challenges, seize opportunities, and grow with confidence.
               </p>
             </motion.div>
 
@@ -118,18 +117,17 @@ export default function DubaiAbout() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="relative"
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="relative p-12 md:p-16 bg-secondary/30"
             >
-              <div className="hidden md:block absolute left-[-2rem] lg:left-[-3rem] top-10 bottom-10 w-[1px] bg-gradient-to-b from-transparent via-border to-transparent" />
-              <div className="flex items-center gap-4 mb-8">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/5">
-                  <Target className="w-5 h-5 text-primary" />
+              <div className="flex items-center gap-3 mb-10">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-primary/10">
+                  <Target className="w-4 h-4 text-primary" />
                 </div>
-                <h3 className="text-xl font-heading font-semibold tracking-[0.1em] text-foreground uppercase">Mission</h3>
+                <span className="text-[11px] font-semibold tracking-[0.25em] text-muted-foreground uppercase">Mission</span>
               </div>
-              <p className="text-[28px] md:text-[36px] font-heading font-light leading-[1.3] tracking-[-0.02em] text-foreground">
-                To empower businesses globally by providing trusted <span className="font-medium text-foreground">financial, advisory, and technology solutions</span> while building a team that contributes <span className="font-medium italic text-primary/80">lasting value.</span>
+              <p className="text-[26px] md:text-[32px] font-heading font-light leading-[1.4] tracking-[-0.02em] text-foreground">
+                To empower businesses globally with trusted <span className="font-semibold text-foreground">financial, advisory, and technology solutions</span> that create lasting value.
               </p>
             </motion.div>
           </div>

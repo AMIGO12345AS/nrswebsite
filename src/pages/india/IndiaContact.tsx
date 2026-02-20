@@ -1,5 +1,5 @@
-import { Mail, MapPin, Phone, ArrowUpRight, Send } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { Mail, MapPin, Phone, ArrowUpRight, Send, CheckCircle2 } from "lucide-react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { fadeUp } from "@/lib/animations";
 import contactHero from "@/assets/contact-hero.jpg";
@@ -11,15 +11,15 @@ export default function IndiaContact() {
 
   const [formState, setFormState] = useState({ name: "", email: "", phone: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate submission
     setTimeout(() => {
       setIsSubmitting(false);
+      setSubmitted(true);
       setFormState({ name: "", email: "", phone: "", message: "" });
-      alert("Thank you for your message. We will get back to you shortly.");
     }, 1500);
   };
 
@@ -101,36 +101,74 @@ export default function IndiaContact() {
 
             {/* Contact Form */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-border/50 to-transparent rounded-[2.5rem] -m-px" />
-              <div className="bg-card rounded-[2.5rem] p-10 md:p-14 relative z-10 shadow-2xl">
-                <h3 className="font-heading font-semibold text-2xl mb-8">Send a message</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Full Name</label>
-                    <input required type="text" id="name" value={formState.name} onChange={e => setFormState({ ...formState, name: e.target.value })} className="w-full bg-background/50 border border-border/60 hover:border-border rounded-2xl px-5 py-4 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all placeholder:text-muted-foreground/30" placeholder="John Doe" />
-                  </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-border/50 to-transparent rounded-3xl -m-px" />
+              <div className="bg-card rounded-3xl p-10 md:p-14 relative z-10 shadow-xl border border-border/50">
+                <AnimatePresence mode="wait">
+                  {submitted ? (
+                    <motion.div
+                      key="success"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      className="flex flex-col items-center justify-center text-center py-16 gap-6"
+                    >
+                      <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                        <CheckCircle2 className="h-8 w-8 text-accent" />
+                      </div>
+                      <div>
+                        <h3 className="font-heading font-bold text-2xl mb-2">Message received</h3>
+                        <p className="text-[15px] text-muted-foreground leading-relaxed">We'll get back to you within 24 hours.</p>
+                      </div>
+                      <button
+                        onClick={() => setSubmitted(false)}
+                        className="text-[13px] font-semibold text-accent hover:text-accent/70 transition-colors tracking-wide"
+                      >
+                        Send another message
+                      </button>
+                    </motion.div>
+                  ) : (
+                    <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                      <h3 className="font-heading font-bold text-2xl mb-2">Send a message</h3>
+                      <p className="text-[14px] text-muted-foreground mb-8">We'll respond within one business day.</p>
+                      <form onSubmit={handleSubmit} className="space-y-5">
+                        <div className="space-y-1.5">
+                          <label htmlFor="name" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Full Name</label>
+                          <input required type="text" id="name" value={formState.name} onChange={e => setFormState({ ...formState, name: e.target.value })} className="w-full bg-background border border-border hover:border-muted-foreground/30 rounded-xl px-4 py-3.5 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-muted-foreground/30" placeholder="John Doe" />
+                        </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Email Address</label>
-                      <input required type="email" id="email" value={formState.email} onChange={e => setFormState({ ...formState, email: e.target.value })} className="w-full bg-background/50 border border-border/60 hover:border-border rounded-2xl px-5 py-4 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all placeholder:text-muted-foreground/30" placeholder="john@company.com" />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="phone" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Phone Number</label>
-                      <input type="tel" id="phone" value={formState.phone} onChange={e => setFormState({ ...formState, phone: e.target.value })} className="w-full bg-background/50 border border-border/60 hover:border-border rounded-2xl px-5 py-4 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all placeholder:text-muted-foreground/30" placeholder="+91 98765 43210" />
-                    </div>
-                  </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                          <div className="space-y-1.5">
+                            <label htmlFor="email" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Email</label>
+                            <input required type="email" id="email" value={formState.email} onChange={e => setFormState({ ...formState, email: e.target.value })} className="w-full bg-background border border-border hover:border-muted-foreground/30 rounded-xl px-4 py-3.5 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-muted-foreground/30" placeholder="john@company.com" />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label htmlFor="phone" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Phone</label>
+                            <input type="tel" id="phone" value={formState.phone} onChange={e => setFormState({ ...formState, phone: e.target.value })} className="w-full bg-background border border-border hover:border-muted-foreground/30 rounded-xl px-4 py-3.5 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-muted-foreground/30" placeholder="+91 98765 43210" />
+                          </div>
+                        </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Your Message</label>
-                    <textarea required id="message" rows={4} value={formState.message} onChange={e => setFormState({ ...formState, message: e.target.value })} className="w-full bg-background/50 border border-border/60 hover:border-border rounded-2xl px-5 py-4 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all placeholder:text-muted-foreground/30 resize-none" placeholder="How can we help you?" />
-                  </div>
+                        <div className="space-y-1.5">
+                          <label htmlFor="message" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Message</label>
+                          <textarea required id="message" rows={4} value={formState.message} onChange={e => setFormState({ ...formState, message: e.target.value })} className="w-full bg-background border border-border hover:border-muted-foreground/30 rounded-xl px-4 py-3.5 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-muted-foreground/30 resize-none" placeholder="How can we help you?" />
+                        </div>
 
-                  <button disabled={isSubmitting} type="submit" className="w-full group inline-flex items-center justify-center gap-3 bg-accent text-white px-8 py-5 rounded-2xl text-[14px] font-semibold hover:bg-accent/90 transition-all duration-500 disabled:opacity-70 shadow-lg shadow-accent/20 mt-4">
-                    {isSubmitting ? "Sending..." : "Submit Inquiry"}
-                    {!isSubmitting && <Send className="h-4 w-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />}
-                  </button>
-                </form>
+                        <button disabled={isSubmitting} type="submit" className="w-full group inline-flex items-center justify-center gap-3 bg-accent text-white px-8 py-4 rounded-xl text-[14px] font-semibold hover:bg-accent/90 transition-all duration-300 disabled:opacity-70 shadow-lg shadow-accent/15 mt-2">
+                          {isSubmitting ? (
+                            <span className="flex items-center gap-2">
+                              <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                              Sending...
+                            </span>
+                          ) : (
+                            <>
+                              Submit Inquiry
+                              <Send className="h-4 w-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                            </>
+                          )}
+                        </button>
+                      </form>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </motion.div>
           </div>
