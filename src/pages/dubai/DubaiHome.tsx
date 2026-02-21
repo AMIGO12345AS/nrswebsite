@@ -119,9 +119,8 @@ export default function DubaiHome() {
         {/* Subtle ambient glow */}
         <div className="absolute -top-32 -left-32 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
         <div className="container py-14 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4">
+          <div className="grid grid-cols-3">
             {[
-              { value: "2017", label: "Established" },
               { value: "1,000+", label: "Clients Served" },
               { value: "50+", label: "Expert Team" },
               { value: "2", label: "Global Offices" }].
@@ -132,11 +131,7 @@ export default function DubaiHome() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.12, duration: 0.6 }}
-                  className={`text-center py-10 md:py-14 px-4 ${
-                    i < 2 ? "border-b border-white/[0.08] md:border-b-0" : ""
-                  } ${
-                    i % 2 === 0 ? "border-r border-white/[0.08] md:border-r-0" : ""
-                  } ${i < 3 ? "md:border-r md:border-white/[0.08]" : ""}`}>
+                  className={`text-center py-10 md:py-14 px-4 ${i < 2 ? "border-r border-white/[0.08]" : ""}`}>
 
                   <p className="text-3xl md:text-4xl font-heading font-bold text-white mb-1">{stat.value}</p>
                   <p className="text-[13px] text-white/50 tracking-wide uppercase">{stat.label}</p>
