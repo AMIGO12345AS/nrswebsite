@@ -86,7 +86,7 @@ export default function DubaiTeam() {
                       <img
                         src={m.image}
                         alt={m.name}
-                        className="w-full h-full object-cover object-top scale-100 group-hover:scale-105 transition-transform duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                        className="w-full h-full object-cover object-top scale-100 group-hover:scale-105 transition-transform duration-1000 ease-out"
                       />
                     </div>
                   </div>

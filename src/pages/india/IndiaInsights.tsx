@@ -54,7 +54,7 @@ export default function IndiaInsights() {
             <div className="group flex flex-col md:flex-row gap-10 md:gap-16 items-center">
               <div className="w-full md:w-[55%] aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl shadow-2xl relative">
                 <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 mix-blend-overlay transition-opacity duration-700 z-10 pointer-events-none" />
-                <img src={insightsFeatured} alt={featured.title} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)]" />
+                <img src={insightsFeatured} alt={featured.title} className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000 ease-out" />
               </div>
               <div className="w-full md:w-[45%] flex flex-col justify-center">
                 <div className="flex items-center gap-4 mb-6">
@@ -95,7 +95,7 @@ export default function IndiaInsights() {
                 custom={i}
                 className="group relative border-b border-border/50 py-10 md:py-12 flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8 cursor-pointer hover:bg-accent/[0.02] -mx-4 px-4 md:-mx-8 md:px-8 transition-all duration-700"
               >
-                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent scale-y-0 group-hover:scale-y-100 transition-transform duration-[800ms] origin-top opacity-50 pointer-events-none" />
+                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent scale-y-0 group-hover:scale-y-100 transition-transform duration-700 origin-top opacity-50 pointer-events-none" />
 
                 <div className="flex-1 relative z-10">
                   <div className="flex items-center gap-4 mb-4">

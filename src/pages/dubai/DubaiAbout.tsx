@@ -50,9 +50,21 @@ export default function DubaiAbout() {
           <div className="absolute top-0 left-1/4 w-64 h-32 bg-accent/5 blur-3xl rounded-full" />
         </div>
         <div className="container relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/[0.08]">
+          <div className="grid grid-cols-2 md:grid-cols-4">
             {stats.map((s, i) => (
-              <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i} className="py-10 md:py-14 text-center">
+              <motion.div
+                key={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={i}
+                className={`py-10 md:py-14 text-center ${
+                  i < 2 ? "border-b border-white/[0.08] md:border-b-0" : ""
+                } ${
+                  i % 2 === 0 ? "border-r border-white/[0.08] md:border-r-0" : ""
+                } ${i < 3 ? "md:border-r md:border-white/[0.08]" : ""}`}
+              >
                 <div className="text-3xl md:text-4xl font-heading font-bold text-white mb-1">{s.value}</div>
                 <div className="text-[13px] text-white/50 tracking-wide uppercase">{s.label}</div>
               </motion.div>

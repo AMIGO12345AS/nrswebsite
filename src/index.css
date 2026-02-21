@@ -50,6 +50,11 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
+
+  :where(a, button, input, textarea, select, [role="button"]):focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
 }
 
 html {
@@ -58,4 +63,10 @@ html {
 
 ::selection {
   background: hsl(158 45% 32% / 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

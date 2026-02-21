@@ -50,6 +50,22 @@ export default function Navbar({ region }: NavbarProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setOpen(false);
+    setRegionOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [open]);
+
   // Close region dropdown on outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -117,7 +133,7 @@ export default function Navbar({ region }: NavbarProps) {
             <button
               onClick={() => setRegionOpen(!regionOpen)}
               className={cn(
-                "flex items-center gap-2 px-3.5 py-2 rounded-full text-[13px] font-medium transition-all duration-200 border",
+                "flex items-center gap-2 px-3.5 py-2 rounded-full text-[13px] font-medium transition-all duration-200 border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
                 regionOpen
                   ? "bg-white/[0.12] border-white/[0.12] text-white"
                   : "bg-white/[0.05] border-white/[0.06] text-white/60 hover:text-white hover:bg-white/[0.08] hover:border-white/[0.1]"
@@ -171,9 +187,10 @@ export default function Navbar({ region }: NavbarProps) {
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden p-2 text-white/70 hover:text-white transition-colors"
+          className="lg:hidden p-2.5 text-white/70 hover:text-white transition-colors"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>

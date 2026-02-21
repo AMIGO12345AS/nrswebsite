@@ -81,7 +81,7 @@ export default function IndiaServices() {
                 <img
                   src={s.image}
                   alt={s.title}
-                  className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000 ease-out"
                 />
 
                 {/* Dark overlay */}

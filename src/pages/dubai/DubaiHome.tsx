@@ -65,8 +65,8 @@ export default function DubaiHome() {
             className="max-w-2xl">
 
             <div className="flex items-center gap-2 mb-3">
-              <div className="h-px w-8 bg-[#f0f0f0]" />
-              <span className="text-[12px] font-medium tracking-[0.2em] uppercase text-[#f0f0f0]">
+              <div className="h-px w-8 bg-white/90" />
+              <span className="text-[12px] font-medium tracking-[0.2em] uppercase text-white/90">
                 FTA-Approved Tax Agent
               </span>
             </div>
@@ -115,15 +115,16 @@ export default function DubaiHome() {
       </section>
 
       {/* Stats */}
-      <section className="relative bg-foreground border-t border-white/[0.06] overflow-hidden">
+      <section className="relative bg-foreground overflow-hidden">
         {/* Subtle ambient glow */}
         <div className="absolute -top-32 -left-32 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
         <div className="container py-14 relative z-10">
-          <div className="grid grid-cols-3 divide-x divide-white/[0.08]">
+          <div className="grid grid-cols-2 md:grid-cols-4">
             {[
+              { value: "2017", label: "Established" },
               { value: "1,000+", label: "Clients Served" },
               { value: "50+", label: "Expert Team" },
-              { value: "2017", label: "Established" }].
+              { value: "2", label: "Global Offices" }].
               map((stat, i) =>
                 <motion.div
                   key={i}
@@ -131,10 +132,14 @@ export default function DubaiHome() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.12, duration: 0.6 }}
-                  className="text-center px-4">
+                  className={`text-center py-10 md:py-14 px-4 ${
+                    i < 2 ? "border-b border-white/[0.08] md:border-b-0" : ""
+                  } ${
+                    i % 2 === 0 ? "border-r border-white/[0.08] md:border-r-0" : ""
+                  } ${i < 3 ? "md:border-r md:border-white/[0.08]" : ""}`}>
 
-                  <p className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight">{stat.value}</p>
-                  <p className="text-[11px] mt-2 text-white/40 tracking-[0.2em] uppercase font-medium">{stat.label}</p>
+                  <p className="text-3xl md:text-4xl font-heading font-bold text-white mb-1">{stat.value}</p>
+                  <p className="text-[13px] text-white/50 tracking-wide uppercase">{stat.label}</p>
                 </motion.div>
               )}
           </div>
@@ -208,7 +213,7 @@ export default function DubaiHome() {
                       </h3>
 
                       {/* Description - Expands/Reveals on Hover */}
-                      <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]">
+                      <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-out">
                         <div className="overflow-hidden">
                           <p className="text-[16px] md:text-[18px] text-white/40 leading-relaxed max-w-2xl font-light transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-100 ease-out mt-4 pb-2">
                             {s.desc}

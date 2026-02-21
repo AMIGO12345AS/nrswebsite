@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Region } from "@/lib/region";
+import { useEffect } from "react";
+import { applySeo } from "@/lib/seo";
 
 interface RegionLayoutProps {
   region: Region;
@@ -37,6 +39,10 @@ const pageVariants = {
 
 export default function RegionLayout({ region }: RegionLayoutProps) {
   const location = useLocation();
+
+  useEffect(() => {
+    applySeo(location.pathname);
+  }, [location.pathname]);
 
   return (
     <div className="flex min-h-screen flex-col">
