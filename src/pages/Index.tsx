@@ -1,13 +1,11 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { detectRegion } from "@/lib/region";
 
 const Index = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const region = detectRegion();
-    navigate(`/${region}`, { replace: true });
+    navigate(`/india`, { replace: true });
   }, [navigate]);
 
   return (

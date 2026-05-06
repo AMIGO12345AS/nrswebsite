@@ -44,9 +44,12 @@ export default function IndiaHome() {
     <>
       {/* Hero — immersive, no tint */}
       <section ref={heroRef} className="relative h-screen flex items-end overflow-hidden bg-foreground">
+        <link rel="preload" as="image" href={nrsBuilding} />
         <img
           src={nrsBuilding}
           alt="NRS & Associates Building"
+          fetchPriority="high"
+          loading="eager"
           className="absolute inset-0 w-full h-full object-cover object-[30%_center] md:object-center" />
 
         {/* Base readability gradient */}

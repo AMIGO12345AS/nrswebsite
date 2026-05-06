@@ -16,7 +16,7 @@ export default function Footer({ region }: FooterProps) {
             Let's build something<br /><span className="font-medium text-white/35">together.</span>
           </h2>
           <Link
-            to={`/${region}/contact`}
+            to="/india/contact"
             className="group inline-flex items-center gap-2.5 text-[15px] font-semibold text-accent transition-colors hover:text-accent/80">
 
             Start a conversation
@@ -35,7 +35,7 @@ export default function Footer({ region }: FooterProps) {
               <span className="text-[10px] font-body font-medium tracking-[0.15em] uppercase text-white/25">& Associates</span>
             </div>
             <p className="text-[14px] text-white/30 leading-[1.7] max-w-[280px]">
-              Trusted financial advisory & business solutions across India and the UAE since 2017.
+              Trusted financial advisory & business solutions across India since 2017.
             </p>
           </div>
 
@@ -43,10 +43,10 @@ export default function Footer({ region }: FooterProps) {
           <div>
             <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/20 mb-6">Navigate</h4>
             <div className="flex flex-col gap-3">
-              {["About", "Services", "Team", "Insights", "Careers"].map((label) =>
+              { ["About", "Services", "Team", "Insights", "Careers"].map((label) =>
               <Link
                 key={label}
-                to={`/${region}/${label.toLowerCase()}`}
+                to={`/india/${label.toLowerCase()}`}
                 className="text-[14px] text-white/35 hover:text-white transition-colors w-fit">
 
                   {label}
@@ -57,13 +57,10 @@ export default function Footer({ region }: FooterProps) {
 
           {/* Offices */}
           <div>
-            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/20 mb-6">Offices</h4>
+            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/20 mb-6">Office</h4>
             <div className="flex flex-col gap-3">
-              <Link to="/india" className={`text-[14px] transition-colors w-fit ${region === 'india' ? 'text-accent' : 'text-white/35 hover:text-white'}`}>
+              <Link to="/india" className="text-[14px] transition-colors w-fit text-accent">
                 India
-              </Link>
-              <Link to="/dubai" className={`text-[14px] transition-colors w-fit ${region === 'dubai' ? 'text-accent' : 'text-white/35 hover:text-white'}`}>
-                Dubai, UAE
               </Link>
             </div>
           </div>
@@ -73,9 +70,7 @@ export default function Footer({ region }: FooterProps) {
             <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/20 mb-6">Contact</h4>
             <div className="flex flex-col gap-3 text-[14px] text-white/35">
               <a href="mailto:info@nrsfysner.com" className="hover:text-white transition-colors">info@nrsfysner.com</a>
-              {region === "dubai" &&
-              <a href="tel:+97143437233" className="hover:text-white transition-colors">+971 4343 72 33</a>
-              }
+              <a href="tel:+912212345678" className="hover:text-white transition-colors">+91 22 1234 5678</a>
             </div>
           </div>
         </div>
