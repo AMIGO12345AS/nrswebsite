@@ -42,11 +42,11 @@ export default function DubaiContact() {
         </div>
       </section>
 
-      <section className="py-16 md:py-28 bg-background relative overflow-hidden">
+      <section className="py-12 md:py-28 bg-background relative overflow-hidden">
         <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-accent/[0.03] blur-[120px] rounded-full pointer-events-none" />
 
         <div className="container max-w-6xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-24">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-16 md:mb-24">
 
             {/* Contact Information */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex flex-col justify-center">
@@ -103,7 +103,7 @@ export default function DubaiContact() {
             {/* Contact Form */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-border/50 to-transparent rounded-3xl -m-px" />
-              <div className="bg-card rounded-3xl p-7 md:p-14 relative z-10 shadow-xl border border-border/50">
+              <div className="bg-card rounded-3xl p-6 md:p-14 relative z-10 shadow-xl border border-border/50">
                 <AnimatePresence mode="wait">
                   {submitted ? (
                     <motion.div
@@ -130,30 +130,30 @@ export default function DubaiContact() {
                   ) : (
                     <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                       <h3 className="font-heading font-bold text-2xl mb-2">Send a message</h3>
-                      <p className="text-[14px] text-muted-foreground mb-8">We'll respond within one business day.</p>
-                      <form onSubmit={handleSubmit} className="space-y-5">
+                      <p className="text-[14px] text-muted-foreground mb-6 md:mb-8">We'll respond within one business day.</p>
+                      <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
                         <div className="space-y-1.5">
                           <label htmlFor="name" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Full Name</label>
-                          <input required type="text" id="name" value={formState.name} onChange={e => setFormState({ ...formState, name: e.target.value })} className="w-full bg-background border border-border hover:border-muted-foreground/30 rounded-xl px-4 py-3.5 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-muted-foreground/30" placeholder="John Doe" />
+                          <input required type="text" id="name" value={formState.name} onChange={e => setFormState({ ...formState, name: e.target.value })} className="w-full bg-background border border-border hover:border-muted-foreground/30 rounded-xl px-4 py-3 text-[14px] md:py-3.5 md:text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-muted-foreground/30" placeholder="John Doe" />
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                           <div className="space-y-1.5">
                             <label htmlFor="email" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Email</label>
-                            <input required type="email" id="email" value={formState.email} onChange={e => setFormState({ ...formState, email: e.target.value })} className="w-full bg-background border border-border hover:border-muted-foreground/30 rounded-xl px-4 py-3.5 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-muted-foreground/30" placeholder="john@company.com" />
+                            <input required type="email" id="email" value={formState.email} onChange={e => setFormState({ ...formState, email: e.target.value })} className="w-full bg-background border border-border hover:border-muted-foreground/30 rounded-xl px-4 py-3 text-[14px] md:py-3.5 md:text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-muted-foreground/30" placeholder="john@company.com" />
                           </div>
                           <div className="space-y-1.5">
                             <label htmlFor="phone" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Phone</label>
-                            <input type="tel" id="phone" value={formState.phone} onChange={e => setFormState({ ...formState, phone: e.target.value })} className="w-full bg-background border border-border hover:border-muted-foreground/30 rounded-xl px-4 py-3.5 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-muted-foreground/30" placeholder="+971 50 123 4567" />
+                            <input type="tel" id="phone" value={formState.phone} onChange={e => setFormState({ ...formState, phone: e.target.value })} className="w-full bg-background border border-border hover:border-muted-foreground/30 rounded-xl px-4 py-3 text-[14px] md:py-3.5 md:text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-muted-foreground/30" placeholder="+971 50 123 4567" />
                           </div>
                         </div>
 
                         <div className="space-y-1.5">
                           <label htmlFor="message" className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/80 pl-1">Message</label>
-                          <textarea required id="message" rows={4} value={formState.message} onChange={e => setFormState({ ...formState, message: e.target.value })} className="w-full bg-background border border-border hover:border-muted-foreground/30 rounded-xl px-4 py-3.5 text-[15px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-muted-foreground/30 resize-none" placeholder="How can we help you?" />
+                          <textarea required id="message" rows={3} value={formState.message} onChange={e => setFormState({ ...formState, message: e.target.value })} className="w-full bg-background border border-border hover:border-muted-foreground/30 rounded-xl px-4 py-3 text-[14px] md:py-3.5 md:text-[15px] md:min-h-[132px] focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-muted-foreground/30 resize-none" placeholder="How can we help you?" />
                         </div>
 
-                        <button disabled={isSubmitting} type="submit" className="w-full group inline-flex items-center justify-center gap-3 bg-accent text-white px-8 py-4 rounded-xl text-[14px] font-semibold hover:bg-accent/90 transition-all duration-300 disabled:opacity-70 shadow-lg shadow-accent/15 mt-2">
+                        <button disabled={isSubmitting} type="submit" className="w-full group inline-flex items-center justify-center gap-3 bg-accent text-white px-8 py-3.5 md:py-4 rounded-xl text-[14px] font-semibold hover:bg-accent/90 transition-all duration-300 disabled:opacity-70 shadow-lg shadow-accent/15 mt-1 md:mt-2">
                           {isSubmitting ? (
                             <span className="flex items-center gap-2">
                               <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
