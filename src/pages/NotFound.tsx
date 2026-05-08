@@ -7,7 +7,7 @@ const NotFound = () => {
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
 
-    document.title = "404 — Page Not Found | NRS & Associates";
+    document.title = "404 — Page Not Found | NRS and Associates";
 
     const description = document.head.querySelector<HTMLMetaElement>('meta[name="description"]');
     if (description) {

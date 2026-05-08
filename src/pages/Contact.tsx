@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { fadeUp } from "@/lib/animations";
 import contactHero from "@/assets/contact-hero.jpg";
 
-export default function IndiaContact() {
+export default function Contact() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const cinematicOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);

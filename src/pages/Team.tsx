@@ -11,7 +11,7 @@ const leaders = [
     name: "CA Muhammed Nizar E",
     role: "Managing Partner",
     focus: "India operations, direct tax, indirect tax, and MCA compliance",
-    bio: "Co-founder of NRS & Associates with more than a decade of professional experience. He has incorporated and managed compliance for 300+ companies and LLPs, and supports clients across tax planning, assessments, corporate structuring, and NRI matters.",
+    bio: "Co-founder of NRS and Associates with more than a decade of professional experience. He has incorporated and managed compliance for 300+ companies and LLPs, and supports clients across tax planning, assessments, corporate structuring, and NRI matters.",
     spotlight: true,
   },
   {
@@ -68,7 +68,7 @@ const coreTeam = [
   },
 ];
 
-export default function IndiaTeam() {
+export default function Team() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const cinematicOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
@@ -187,7 +187,7 @@ export default function IndiaTeam() {
               Need a team that can handle technical work and still think commercially?
             </h2>
           </div>
-          <Link to="/india/contact" className="group inline-flex items-center gap-2.5 rounded-full bg-accent px-7 py-4 text-[14px] font-semibold text-white transition-all duration-300 hover:bg-accent/90">
+          <Link to="/contact" className="group inline-flex items-center gap-2.5 rounded-full bg-accent px-7 py-4 text-[14px] font-semibold text-white transition-all duration-300 hover:bg-accent/90">
             Start a conversation
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>

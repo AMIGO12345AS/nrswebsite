@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
-import { Region } from "@/lib/region";
 import { ArrowUpRight } from "lucide-react";
 
-interface FooterProps {
-  region: Region;
-}
-
-export default function Footer({ region }: FooterProps) {
+export default function Footer() {
   return (
     <footer className="bg-foreground text-white">
       {/* CTA */}
@@ -16,7 +11,7 @@ export default function Footer({ region }: FooterProps) {
             Let's build something<br /><span className="font-medium text-white/35">together.</span>
           </h2>
           <Link
-            to="/india/contact"
+            to="/contact"
             className="group inline-flex items-center gap-2.5 text-[15px] font-semibold text-accent transition-colors hover:text-accent/80">
 
             Start a conversation
@@ -46,7 +41,7 @@ export default function Footer({ region }: FooterProps) {
               { ["About", "Services", "Team", "Insights", "Careers"].map((label) =>
               <Link
                 key={label}
-                to={`/india/${label.toLowerCase()}`}
+                to={`/${label.toLowerCase()}`}
                 className="text-[14px] text-white/35 hover:text-white transition-colors w-fit">
 
                   {label}
@@ -59,7 +54,7 @@ export default function Footer({ region }: FooterProps) {
           <div>
             <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/20 mb-6">Office</h4>
             <div className="flex flex-col gap-3">
-              <Link to="/india" className="text-[14px] transition-colors w-fit text-accent">
+              <Link to="/" className="text-[14px] transition-colors w-fit text-accent">
                 India
               </Link>
             </div>
@@ -69,7 +64,7 @@ export default function Footer({ region }: FooterProps) {
           <div>
             <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/20 mb-6">Contact</h4>
             <div className="flex flex-col gap-3 text-[14px] text-white/35">
-              <a href="mailto:info@nrsfysner.com" className="hover:text-white transition-colors">info@nrsfysner.com</a>
+              <a href="mailto:info@nrsassociates.in" className="hover:text-white transition-colors">info@nrsassociates.in</a>
               <a href="tel:+912212345678" className="hover:text-white transition-colors">+91 22 1234 5678</a>
             </div>
           </div>

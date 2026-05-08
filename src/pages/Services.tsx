@@ -33,7 +33,7 @@ const services = [
   },
 ];
 
-export default function IndiaServices() {
+export default function Services() {
   return (
     <>
       {/* Hero header */}
@@ -152,7 +152,7 @@ export default function IndiaServices() {
             </div>
             <div className="shrink-0">
               <Link
-                to="/india/contact"
+                to="/contact"
                 className="group inline-flex items-center gap-2.5 bg-accent text-white px-7 py-4 rounded-full text-[14px] font-semibold hover:bg-accent/90 transition-all duration-300 hover:shadow-lg hover:shadow-accent/20"
               >
                 Contact Us

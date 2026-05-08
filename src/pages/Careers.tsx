@@ -29,7 +29,7 @@ const roles = [
   "NRI and cross-border advisory",
 ];
 
-export default function IndiaCareers() {
+export default function Careers() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const cinematicOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);

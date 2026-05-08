@@ -10,29 +10,29 @@ const services = [
     num: "01",
     title: "Audit & Assurance",
     desc: "Statutory audits, internal reviews, and risk-focused assurance that strengthens control.",
-    link: "/india/services"
+    link: "/services"
   },
   {
     num: "02",
     title: "Direct Tax",
     desc: "Tax planning, return filing, assessments, and NRI-focused direct tax support.",
-    link: "/india/services"
+    link: "/services"
   },
   {
     num: "03",
     title: "Compliance",
     desc: "MCA filings, company and LLP incorporation, restructuring, and ongoing governance support.",
-    link: "/india/services"
+    link: "/services"
   },
   {
     num: "04",
     title: "Cross-Border",
     desc: "India-UAE and GCC advisory for FEMA, repatriation, and international transactions.",
-    link: "/india/services"
+    link: "/services"
   }];
 
 
-export default function IndiaHome() {
+export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -47,7 +47,7 @@ export default function IndiaHome() {
         <link rel="preload" as="image" href={nrsBuilding} />
         <img
           src={nrsBuilding}
-          alt="NRS & Associates Building"
+          alt="NRS and Associates Building"
           fetchPriority="high"
           loading="eager"
           className="absolute inset-0 w-full h-full object-cover object-[30%_center] md:object-center" />
@@ -81,18 +81,18 @@ export default function IndiaHome() {
               <span className="text-accent">Cross-Border</span> Advisory
             </h1>
             <p className="text-[15px] text-white/50 leading-relaxed mb-6 max-w-md font-light">
-              Founded in 2016, NRS & Associates serves businesses, entrepreneurs, and NRIs from Manjeri, Calicut, and Dubai with audit, tax, compliance, and advisory support.
+              Founded in 2016, NRS and Associates serves businesses, entrepreneurs, and NRIs from Manjeri, Calicut, and Dubai with audit, tax, compliance, and advisory support.
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <Link
-                to="/india/services"
+                to="/services"
                 className="group inline-flex items-center gap-2.5 bg-accent text-white px-7 py-4 rounded-full text-[14px] font-semibold hover:bg-accent/90 transition-all duration-500 ease-out hover:shadow-lg hover:shadow-accent/25">
 
                 Explore Services
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-500 ease-out" />
               </Link>
               <Link
-                to="/india/about"
+                to="/about"
                 className="group inline-flex items-center gap-2 text-white/50 hover:text-white text-[14px] font-medium transition-colors duration-500">
 
                 Learn More
@@ -170,7 +170,7 @@ export default function IndiaHome() {
             </div>
             <motion.div variants={fadeUp} custom={2}>
               <Link
-                to="/india/services"
+                to="/services"
                 className="group inline-flex items-center gap-3 text-[14px] font-semibold text-white/50 hover:text-white transition-colors duration-300"
               >
                 View all services
@@ -260,10 +260,10 @@ export default function IndiaHome() {
                 powered by trust
               </h2>
               <p className="text-[15px] text-white/50 leading-[1.8] mb-10">
-                Established in 2016, NRS & Associates is a partner-led chartered accountancy firm serving more than 700 clients with audit, tax, compliance, NRI advisory, and international support across India and the UAE.
+                Established in 2016, NRS and Associates is a partner-led chartered accountancy firm serving more than 700 clients with audit, tax, compliance, NRI advisory, and international support across India and the UAE.
               </p>
               <Link
-                to="/india/about"
+                to="/about"
                 className="group inline-flex items-center gap-2.5 text-[14px] font-semibold text-white hover:text-accent transition-colors">
 
                 Our Story
@@ -300,6 +300,6 @@ export default function IndiaHome() {
           </div>
         </div>
       </section>
-    </>);
-
+    </>
+  );
 }

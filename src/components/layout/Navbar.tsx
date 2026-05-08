@@ -1,31 +1,24 @@
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Region } from "@/lib/region";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface NavbarProps {
-  region: Region;
-}
+const navLinks = [
+  { label: "Home", path: "/" },
+  { label: "About", path: "/about" },
+  { label: "Services", path: "/services" },
+  { label: "Team", path: "/team" },
+  { label: "Insights", path: "/insights" },
+  { label: "Careers", path: "/careers" },
+  { label: "Contact", path: "/contact" },
+];
 
-const navLinks = {
-  india: [
-    { label: "Home", path: "/india" },
-    { label: "About", path: "/india/about" },
-    { label: "Services", path: "/india/services" },
-    { label: "Team", path: "/india/team" },
-    { label: "Insights", path: "/india/insights" },
-    { label: "Careers", path: "/india/careers" },
-    { label: "Contact", path: "/india/contact" },
-  ],
-};
-
-export default function Navbar({ region }: NavbarProps) {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const links = navLinks.india;
+  const links = navLinks;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -59,7 +52,7 @@ export default function Navbar({ region }: NavbarProps) {
     >
       <div className="container flex h-[72px] items-center justify-between">
         {/* Brand */}
-        <Link to="/india" className="flex items-baseline gap-1.5 group">
+        <Link to="/" className="flex items-baseline gap-1.5 group">
           <span className="text-[22px] font-heading font-bold tracking-[-0.02em] text-white">
             NRS
           </span>

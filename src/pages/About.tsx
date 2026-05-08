@@ -18,7 +18,7 @@ const stats = [
   { value: "10+", label: "Years of Experience" },
 ];
 
-export default function IndiaAbout() {
+export default function About() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const cinematicOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);

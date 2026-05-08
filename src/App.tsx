@@ -8,18 +8,15 @@ import { MotionConfig } from "framer-motion";
 import { useAdaptiveMotion } from "./hooks/use-adaptive-motion";
 
 // Lazy loaded components for code splitting
-const Index = lazy(() => import("./pages/Index"));
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
+const Team = lazy(() => import("./pages/Team"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Insights = lazy(() => import("./pages/Insights"));
+const Careers = lazy(() => import("./pages/Careers"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const RegionLayout = lazy(() => import("./components/layout/RegionLayout"));
-
-// India pages
-const IndiaHome = lazy(() => import("./pages/india/IndiaHome"));
-const IndiaAbout = lazy(() => import("./pages/india/IndiaAbout"));
-const IndiaServices = lazy(() => import("./pages/india/IndiaServices"));
-const IndiaTeam = lazy(() => import("./pages/india/IndiaTeam"));
-const IndiaContact = lazy(() => import("./pages/india/IndiaContact"));
-const IndiaInsights = lazy(() => import("./pages/india/IndiaInsights"));
-const IndiaCareers = lazy(() => import("./pages/india/IndiaCareers"));
+const GlobalLayout = lazy(() => import("./components/layout/GlobalLayout"));
 
 const queryClient = new QueryClient();
 
@@ -42,17 +39,14 @@ const App = () => {
           <BrowserRouter>
             <Suspense fallback={<PageLoader />}>
               <Routes>
-                <Route path="/" element={<Index />} />
-
-                {/* India */}
-                <Route element={<RegionLayout region="india" />}>
-                  <Route path="/india" element={<IndiaHome />} />
-                  <Route path="/india/about" element={<IndiaAbout />} />
-                  <Route path="/india/services" element={<IndiaServices />} />
-                  <Route path="/india/team" element={<IndiaTeam />} />
-                  <Route path="/india/contact" element={<IndiaContact />} />
-                  <Route path="/india/insights" element={<IndiaInsights />} />
-                  <Route path="/india/careers" element={<IndiaCareers />} />
+                <Route element={<GlobalLayout />}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/team" element={<Team />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/insights" element={<Insights />} />
+                  <Route path="/careers" element={<Careers />} />
                 </Route>
 
                 <Route path="*" element={<NotFound />} />
